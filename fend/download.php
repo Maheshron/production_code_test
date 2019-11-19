@@ -2,7 +2,7 @@
 include "connect.php";
 if(isset($_GET['artical_id'])){
     $id = $_GET['artical_id'];
-    $query = "select * from articals where id='$id'";
+    $query = "select * from articals where artical_id='$id'";
     $result = mysqli_query($con,$query);
     $data = mysqli_fetch_array($result);
     $file = '../edelweiss/upload/artical_pdf/'.$data['pdf'];

@@ -1,3 +1,12 @@
+<?php 
+
+$id = $_GET['journal_id'];
+$sql = "select  * from articals where journal_id = $id";
+
+
+?>
+
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
@@ -293,7 +302,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card">
+                                        <!-- <div class="card">
                                             <div class="card-header" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" id="headingTwo">
                                                 <h5 class="mb-0">
                                                     <a class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-calendar" aria-hidden="true"></i> 
@@ -319,8 +328,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="card">
+                                        </div> -->
+                                        <!-- <div class="card">
                                             <div class="card-header" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree" id="headingThree">
                                                 <h5 class="mb-0">
                                                     <a class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><i class="fa fa-calendar" aria-hidden="true"></i> 
@@ -346,8 +355,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="card">
+                                        </div> -->
+                                        <!-- <div class="card">
                                             <div class="card-header" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour" id="headingFour">
                                                 <h5 class="mb-0">
                                                     <a class="collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree"><i class="fa fa-calendar" aria-hidden="true"></i> 
@@ -373,8 +382,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="card">
+                                        </div> -->
+                                        <!-- <div class="card">
                                             <div class="card-header" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive" id="headingFive">
                                                 <h5 class="mb-0">
                                                     <a class="collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive"><i class="fa fa-calendar" aria-hidden="true"></i> 
@@ -400,7 +409,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
