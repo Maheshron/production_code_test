@@ -22,7 +22,7 @@ $r = str_replace(" ","-",$t);
     <!-- Place favicon.ico in the root directory -->
     <link href="assets/images/favicon.ico" type="img/x-icon" rel="shortcut icon">
     <!-- All css files are included here. -->
-        <base href="http://metrocoolsolutions.in/test2/newedeweles/fend/" />
+    <base href="http://localhost/newedeweles_production/fend/" />
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -37,6 +37,9 @@ $r = str_replace(" ","-",$t);
     position: relative;
     padding: 3rem;
     background: var(--color-white);
+}
+.btn{
+    padding:.1rem .4rem;
 }
         
         .red {
@@ -246,7 +249,7 @@ $r = str_replace(" ","-",$t);
                                         </p>
 
                                         <div class="uni-img">
-                                            <img src="../edelweiss/upload/editor_images/<?php echo $row['image']; ?>" />
+                                            <img src="../edelweiss/upload/editor_images/<?php echo $row['university_logo']; ?>" />
                                         </div>
                                     </div>
                                     <div class="card__footer row  clear-fix">

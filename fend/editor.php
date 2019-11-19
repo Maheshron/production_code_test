@@ -181,9 +181,9 @@ $data = mysqli_fetch_array($result);
                     <div class="col-lg-9">
                         <div class="row">
                             <div class="col-lg-3 editor-img" >
-                                <img src="assets/images/editor-in-chief/editor.jpg">
-                                <br><br>
                                 <img src="../edelweiss/upload/editor_images/<?php echo $data['image']; ?>">
+                                <br><br>
+                                <img src="../edelweiss/upload/editor_images/<?php echo $data['university_logo']; ?>">
                             </div>
                             <div class="col-lg-9">
                                 <div class="info">

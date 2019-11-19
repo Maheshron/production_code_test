@@ -543,8 +543,11 @@ if(isset($_POST['submit'])){
 
                                                             <h4 class="artical-head">Recent Publications</h4>
                                                             <ul class="journal-list">
-                                                                <?php while($row1 = mysqli_fetch_array($result)){ ?>
-                                                                <li><a href="journal.php?journal_id=<?php echo $row1['id']; ?>"><span><?php echo $row1['journal_title']; ?></span></a>
+                                                                <?php while($row1 = mysqli_fetch_array($result)){ 
+                                                                    $s = $row1['journal_title'];
+                                                                    $rs = str_replace(" ","-",$s);
+                                                                    ?>
+                                                                <li><a href="journals/<?php echo $row1['id']; ?>/<?php echo $rs; ?>"><span><?php echo $row1['journal_title']; ?></span></a>
                                                                     <p> <a href="#">Volume 20</a></p>
                                                                 </li>
                                                                 <?php } ?>

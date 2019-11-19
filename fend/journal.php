@@ -43,7 +43,7 @@ $r = str_replace(" ","-",$t);
     <!-- Place favicon.ico in the root directory -->
     <link href="assets/images/favicon.ico" type="img/x-icon" rel="shortcut icon">
     <!-- All css files are included here. -->
-    <base href="http://metrocoolsolutions.in/test2/newedeweles/fend/" />
+    <base href="http://localhost/newedeweles_production/fend/" />
     
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
