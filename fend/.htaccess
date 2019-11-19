@@ -40,6 +40,9 @@ RewriteRule ^keyword/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+) k?journal_id
 RewriteRule ^ar?$ article.php
 RewriteRule ^articles/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+) ar?journal_id=$1&artical_id=$2&artical_title=$3 [QSA,L]
 
+RewriteRule ^d?$ download.php
+RewriteRule ^edeweles/articles/([a-zA-Z0-9]+)  d?artical_id=$1&artical_title=$2 [QSA,L]
+
 
 
 # RewriteRule editors/(.*)/(.*) editors.php?journal_id=$1 [L]	

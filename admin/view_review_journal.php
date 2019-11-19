@@ -1,5 +1,5 @@
 <?php include "main.php"; 
-$con = mysqli_connect('localhost','edelweissuser2','edelweissuser2','edelweiss3');
+$con = mysqli_connect('localhost','edelweissuser4','edelweissuser4','edelweissuser');
 if(isset($_REQUEST['journal_id'])){
     extract($_REQUEST);
 }
@@ -14,7 +14,7 @@ if(isset($_POST['update'])){
     $newPosition = $position[1];
     
     $query = "update reviewer set Position = '$newPosition' where review_id = '$index'";
-    $result = mysqli_query($user->db,$query);
+    $result =   ($user->db,$query);
   
 }
 exit('success');

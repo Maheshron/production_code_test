@@ -492,13 +492,13 @@ if(isset($_POST['submit'])){
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     <ul class="artical-list">
-                                                        <li><a href="#">Nursing and Health Professions</a></li>
-                                                        <li><a href="#">Medicine</a></li>
-                                                        <li><a href="#">Cardiology</a></li>
-                                                        <li><a href="#">Cancer</a></li>
-                                                        <li><a href="#">Obesity</a></li>
-                                                        <li><a href="#">Rheumatic Diseases</a></li>
-                                                        <li><a href="#">Dentistry</a></li>
+                                                        <li><a href="journal-book-list.php">Nursing and Health Professions</a></li>
+                                                        <li><a href="journal-book-list.php">Medicine</a></li>
+                                                        <li><a href="journal-book-list.php">Cardiology</a></li>
+                                                        <li><a href="journal-book-list.php">Cancer</a></li>
+                                                        <li><a href="journal-book-list.php">Obesity</a></li>
+                                                        <li><a href="journal-book-list.php">Rheumatic Diseases</a></li>
+                                                        <li><a href="journal-book-list.php">Dentistry</a></li>
                                                        
                                                     </ul>
                                                 </div>
@@ -583,11 +583,11 @@ if(isset($_POST['submit'])){
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     <ul class="artical-list">
-                                                        <li><a href="#">Nanotechnology</a></li>
-                                                        <li><a href="#">Applied Science</a></li>
-                                                        <li><a href="#">Biomedical Science</a></li>
-                                                        <li><a href="#">Food Science</a></li>
-                                                        <li><a href="#">Physical Science</a></li>
+                                                        <li><a href="journal-book-list.php">Nanotechnology</a></li>
+                                                        <li><a href="journal-book-list.php">Applied Science</a></li>
+                                                        <li><a href="journal-book-list.php">Biomedical Science</a></li>
+                                                        <li><a href="journal-book-list.php">Food Science</a></li>
+                                                        <li><a href="journal-book-list.php">Physical Science</a></li>
                                                         
                                                     </ul>
                                                 </div>
@@ -671,13 +671,13 @@ if(isset($_POST['submit'])){
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     <ul class="artical-list">
-                                                        <li><a href="#">Biological Science</a></li>
-                                                        <li><a href="#">Biochemistry And Molecular Biology</a></li>
-                                                        <li><a href="#">Neuroscience</a></li>
-                                                        <li><a href="#">Genetics</a></li>
-                                                        <li><a href="#">Health Care</a></li>
-                                                        <li><a href="#">Pyschology</a></li>
-                                                        <li><a href="#">Diabetics</a></li>
+                                                        <li><a href="journal-book-list.php">Biological Science</a></li>
+                                                        <li><a href="journal-book-list.php">Biochemistry And Molecular Biology</a></li>
+                                                        <li><a href="journal-book-list.php">Neuroscience</a></li>
+                                                        <li><a href="journal-book-list.php">Genetics</a></li>
+                                                        <li><a href="journal-book-list.php">Health Care</a></li>
+                                                        <li><a href="journal-book-list.php">Pyschology</a></li>
+                                                        <li><a href="journal-book-list.php">Diabetics</a></li>
                                                       
                                                     </ul>
                                                 </div>
@@ -751,10 +751,10 @@ if(isset($_POST['submit'])){
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     <ul class="artical-list">
-                                                        <li><a href="#">Pharmaceuticals</a></li>
-                                                        <li><a href="#">Organic Chemistry</a></li>
-                                                        <li><a href="#">Pharmacology,Toxicology and Pharmaceutical Science</a></li>
-                                                        <li><a href="#">Pharmcovigilance</a></li>
+                                                        <li><a href="journal-book-list.php">Pharmaceuticals</a></li>
+                                                        <li><a href="journal-book-list.php">Organic Chemistry</a></li>
+                                                        <li><a href="journal-book-list.php">Pharmacology,Toxicology and Pharmaceutical Science</a></li>
+                                                        <li><a href="journal-book-list.php">Pharmcovigilance</a></li>
                                                         
                                                     </ul>
                                                 </div>
@@ -923,33 +923,33 @@ if(isset($_POST['submit'])){
                         </div>
                         <div class="col-md-9">
                             <ul class="u-display-inline branded u-text-center index-list text-l">
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">A</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">B</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">C</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">D</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">E</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">F</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">G</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">H</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">I</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">J</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">K</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">L</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">M</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">N</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">O</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">P</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">Q</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">R</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">S</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">T</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">U</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">V</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">W</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">X</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">Y</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">Z</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="#">0-9</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">A</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">B</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">C</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">D</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">E</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">F</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">G</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">H</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">I</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">J</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">K</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">L</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">M</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">N</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">O</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">P</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">Q</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">R</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">S</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">T</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">U</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">V</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">W</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">X</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">Y</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">Z</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">0-9</a></li>
                             </ul>
                         </div>
                     </div>

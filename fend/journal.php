@@ -205,7 +205,7 @@ $r = str_replace(" ","-",$t);
 
                         <div class="testimonial-slider">
                             <!--Single Testimonial Start-->
-                            <?php $sql2 ="select * from editors where journal_id='$id' limit 0,4";
+                            <?php $sql2 ="select * from editors where journal_id='$id' limit 4";
                                       $result2 = mysqli_query($con,$sql2);
                                       $data2 = mysqli_fetch_array($result2);
                                       while($row2 = mysqli_fetch_array($result2)){ ?>
@@ -399,7 +399,7 @@ $r = str_replace(" ","-",$t);
                                                 <div class="auther-name">
                                                     <p><?php echo $row4['author_names']; ?></p>
                                                 </div>
-                                        <div class="download-pdf"><a href="download.php?artical_id=<?php echo $row4['artical_short_name']; ?>"><img src="assets/images/PDF_32.png"></a></div>
+                                        <div class="download-pdf"><a href="edeweles/<?php echo $row4['artical_id']; ?>/<?php echo $ar2; ?>"><img src="assets/images/PDF_32.png"></a></div>
                                             </div>
                                             <?php } ?>
                                             <!-- <div class="col-lg-6 nopadding">
@@ -417,14 +417,20 @@ $r = str_replace(" ","-",$t);
                                             <div class="col-lg-12 nopadding">
                                                 <h3>Indexing</h3>
                                                 <section class="customer-logos slider">
-                                                    <div class="slide"><img src="https://image.freepik.com/free-vector/luxury-letter-e-logo-design_1017-8903.jpg"></div>
-                                                    <div class="slide"><img src="https://image.freepik.com/free-vector/3d-box-logo_1103-876.jpg"></div>
+                                                    <?php 
+                                                     $sqlindex = "select * from indexing";
+                                                     $resultindex = mysqli_query($con,$sqlindex);
+                                                       while($rowindex = mysqli_fetch_array($resultindex)){
+                                                    ?>
+                                                    <div class="slide"><img src="../edelweiss/upload/indexes/<?php echo $rowindex['index_logo']; ?>"></div>
+                                                       <?php } ?>
+                                                    <!-- <div class="slide"><img src="https://image.freepik.com/free-vector/3d-box-logo_1103-876.jpg"></div>
                                                     <div class="slide"><img src="https://image.freepik.com/free-vector/blue-tech-logo_1103-822.jpg"></div>
                                                     <div class="slide"><img src="https://image.freepik.com/free-vector/colors-curl-logo-template_23-2147536125.jpg"></div>
                                                     <div class="slide"><img src="https://image.freepik.com/free-vector/abstract-cross-logo_23-2147536124.jpg"></div>
                                                     <div class="slide"><img src="https://image.freepik.com/free-vector/football-logo-background_1195-244.jpg"></div>
                                                     <div class="slide"><img src="https://image.freepik.com/free-vector/background-of-spots-halftone_1035-3847.jpg"></div>
-                                                    <div class="slide"><img src="https://image.freepik.com/free-vector/retro-label-on-rustic-background_82147503374.jpg"></div>
+                                                    <div class="slide"><img src="https://image.freepik.com/free-vector/retro-label-on-rustic-background_82147503374.jpg"></div> -->
                                                 </section>
                                             </div>
                                         </div>
@@ -436,9 +442,9 @@ $r = str_replace(" ","-",$t);
                                                     <?php 
                                                     $sql5 = "select * from editors where journal_id='$id'";
                                                     $result5 = mysqli_query($con,$sql5);
-                                                   while($row5 =mysqli_fetch_array($result5)){ ?> 
+                                                   while($row5 = mysqli_fetch_array($result5)){ ?> 
                                                     
-                                                    <div class="slide"><img src="../edelweiss/upload/editor_images/<?php echo $row5['image']; ?>">
+                                                    <div class="slide"><img src="../edelweiss/upload/editor_images/<?php echo $row5['image']; ?>" alt="hello">
                                                         <a href="#">
                                                             <h5><?php echo $row5['first_name']; ?></h5>
                                                         </a>

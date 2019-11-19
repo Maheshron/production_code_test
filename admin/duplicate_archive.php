@@ -45,6 +45,24 @@
   
 ?>
 
+<?php
+if(isset($_POST['update'])){
+  
+  foreach($_POST['positions'] as $position){
+    $index = $position[0];
+    
+    $newPosition = $position[1];
+    
+    $query = "update articals set Position = '$newPosition' where artical_id = '$index'";
+    $result = mysqli_query($user->db,$query);
+  
+}
+exit('success');
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
 
@@ -148,6 +166,7 @@
             }
           
           }
+          sort($arr);
        
           ?>
       <!-- Panel Table Individual column searching -->
@@ -225,7 +244,7 @@
             </thead>
             <tbody>
             <?php while($row = mysqli_fetch_array($result5)){ ?>
-            <tr>
+            <tr data-position=<?php echo $row['Position']; ?> data-index=<?php echo $row['artical_id'] ?>>
                
                  <td>
                      <b>  <?php // echo $row['issue_number']; ?></b><br>
@@ -488,6 +507,65 @@
     ga('create', 'UA-65522665-1', 'auto');
     ga('send', 'pageview');
   </script>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+  </script>
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous">
+  </script>
+<script>
+$(document).ready(function(){
+ 
+  var $sortable = $("#exampleTableSearch > tbody");
+      $sortable.sortable({
+     update:function (event,ui){
+       console.log(ui);
+       $(this).children().each(function(index){
+        if($(this).attr('data-position') != (index + 1)){
+          $(this).attr('data-position',(index + 1)).addClass('updated');
+
+        }
+       });
+       saveNewPositions();
+     }
+      });
+
+    // $(document).ready(function(){
+    //   $('table tbody').sortable({
+    //      update:function (event,ui){
+    //          console.log($(this));
+    //      }
+    //   });
+    // });
+  function saveNewPositions(){
+    var positions = [];
+    $('.updated').each(function(){
+      positions.push([$(this).attr('data-index'),$(this).attr('data-position')]);
+      $(this).removeClass('updated');
+      console.log(positions);
+   
+    });
+    $.ajax({
+      url:'duplicate_archive.php',
+      method:'POST',
+      dataType:'text',
+      data:{
+        update:1,
+        positions:positions
+      },success:function(response){
+        console.log(response);
+        
+      }
+    });
+  }
+});
+ 
+  </script>
+
 </body>
 
 

@@ -17,7 +17,7 @@
             header("location:dashboard.php");
           }
           else{
-            header("location:journal_dashboard.php?journal_id=$a_journal_id");
+            header("location:about_journal.php?journal_id=$a_journal_id");
           }
                   
       } 
