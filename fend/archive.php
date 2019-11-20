@@ -1,9 +1,24 @@
 <?php 
-
+include("connect.php");
 $id = $_GET['journal_id'];
 $sql = "select  * from articals where journal_id = $id";
 
+$sqlt = "select * from journal where id = '$id'";
+$resultt = mysqli_query($con,$sqlt);
+$datat = mysqli_fetch_array($resultt);
+$t = $datat['journal_title'];
+$r = str_replace(" ","-",$t);
 
+
+$result = mysqli_query($con,$sql);
+           $arr = [];
+           $arri = [];
+           while($data = mysqli_fetch_array($result)){
+               if(!in_array($data['volume_number'],$arr)){
+                   array_push($arr,$data['volume_number']);
+               }
+           }
+           sort($arr);
 ?>
 
 
@@ -18,6 +33,8 @@ $sql = "select  * from articals where journal_id = $id";
     <!-- Place favicon.ico in the root directory -->
     <link href="assets/images/favicon.ico" type="img/x-icon" rel="shortcut icon">
     <!-- All css files are included here. -->
+    <base href="http://localhost/production_code_test/fend/" />
+
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/icofont.min.css">
@@ -173,11 +190,11 @@ $sql = "select  * from articals where journal_id = $id";
                         <div class="col-lg-4">
                             <nav class="main-menu" style="float: left">
                                 <ul>
-                                    <li><a href="index.html">Journals List</a>
+                                    <li><a href="journal-book-list.php">Journals List</a>
                                     </li>
-                                    <li><a href="index.html">Articals</a>
+                                    <li><a href="#">Articals</a>
                                     </li>
-                                    <li><a href="index.html">Contact Us</a>
+                                    <li><a href="journal_contact/<?php echo $id; ?>/<?php echo $r; ?>">Contact Us</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -236,14 +253,14 @@ $sql = "select  * from articals where journal_id = $id";
                     </div>
                     <div class="menu" id="open-navbar1">
                         <ul class="list">
-                            <li><a href="journal.html">Home</a></li>
+                            <li><a href="journals/<?php echo $id; ?>/<?php echo $r; ?>">Home</a></li>
 
-                            <li><a href="editorial-board.html">Editorial Panel</a></li>
+                            <li><a href="editorial-board/<?php echo $id; ?>/<?php echo $r; ?>">Editorial Panel</a></li>
                             <li><a href="#">Manuscript Submissions</a></li>
-                            <li><a href="article-in-press.html">Articles in Press</a></li>
-                            <li><a href="currrnt-issue.html">Current Issue</a></li>
-                            <li><a href="previous-issue.html">Previous Issue</a></li>
-                            <li><a href="archive.html">All Issues</a></li>
+                            <li><a href="article-in-press/<?php echo $id; ?>/<?php  echo $r; ?>">Articles in Press</a></li>
+                            <li><a href="current_issues/<?php echo $id; ?>/<?php  echo $r; ?>">Current Issue</a></li>
+                            <li><a href="previous_issues/<?php echo $id; ?>/<?php  echo $r; ?>">Previous Issue</a></li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -268,11 +285,12 @@ $sql = "select  * from articals where journal_id = $id";
                             <div class="single-content-section">
                                 <div class="code-preview">
                                     <div class="accordion" id="accordionExample">
+                                       <?php foreach($arr as $a): ?>
                                         <div class="card">
                                             <div class="card-header" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" id="headingOne">
                                                 <h5 class="mb-0">
                                                     <a class="" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="fa fa-calendar" aria-hidden="true"></i> 
-                                                        2015 - Volume 1
+                                                        Volume <?php echo $a; ?>
                                                         
                                                     </a>
                                                     <a class="" style="float: right; font-size: 18px;" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -286,9 +304,23 @@ $sql = "select  * from articals where journal_id = $id";
                                             <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
                                                 <div class="card-body">
                                                     <div class=" archive-issue" >
-                                                        <h5> <a href="article.html">Volume 12, Issue 6 </a></h5>
-                                                        <p>(May 2019)</p>
-                                                        <h5><a href="article.html">Volume 12, Issue 5 </a> </h5>
+                                                         <?php 
+                                                         
+                                                         $sql2  = "select * from articals where volume_number = $a and journal_id=$id";
+                                                         $result2 = mysqli_query($con,$sql2);
+                                                         while($data1 = mysqli_fetch_array($result2)){
+                                                             if(!in_array($data1['issue_number'],$arri)){
+                                                                 array_push($arri,$data1['issue_number']);
+                                                             }
+                                                         }
+                                                         sort($arri);
+                                                         ?>
+                                                         <?php 
+                                                         foreach($arri as $b): ?>
+                                                        <h5> <a href="article.html">Volume <?php echo $a; ?>, Issue <?php echo $b; ?> </a></h5>
+                                                        
+                                                        <?php endforeach; ?>
+                                                        <!-- <h5><a href="article.html">Volume 12, Issue 5 </a> </h5>
                                                         <p>(June 2019)</p>
                                                         <h5><a href="article.html">Volume 12, Issue 4 </a> </h5>
                                                         <p>(July 2019)</p>
@@ -297,10 +329,11 @@ $sql = "select  * from articals where journal_id = $id";
                                                         <h5><a href="article.html">Volume 12, Issue 2 </a></h5>
                                                         <p>(September 2019)</p>
                                                         <h5><a href="article.html">Volume 12, Issue 1 </a> </h5>
-                                                        <p>(October 2019)</p>
+                                                        <p>(October 2019)</p> -->
                                                     </div>
                                                 </div>
                                             </div>
+                                       <?php  endforeach; ?>
                                         </div>
                                         <!-- <div class="card">
                                             <div class="card-header" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" id="headingTwo">
@@ -420,12 +453,31 @@ $sql = "select  * from articals where journal_id = $id";
                         <!--Single Sidebar Widget Start-->
                             <div class="single-sidebar-widget mb-30 mb-xs-20 subscribe">
                                 <div class="news-latter-box">
+
+                                <?php 
+                                if(isset($_POST['ssubmit'])){
+                                   $name = $_POST['sname'];
+                                   $email = $_POST['semail'];
+                                   $l = (isset($_POST['l']) ? 1 : 0 );
+                                   $c = (isset($_POST['c']) ? 1 : 0 );
+                                   $h = (isset($_POST['h']) ? 1 : 0 );
+                                   $sql8 = "insert into subscribe(name,email,life_science,health_science,chemical_science,subscribe_time) values('$name','$email','$l','$c','$h',NOW())";
+                                   $result8 = mysqli_query($con,$sql8);
+                                   $to = "skshanawa21@gmail.com";
+                                   $from = $email;
+                                   $message = "PHP mail works fine";
+                                   $headers = "From ".$from;
+                                   mail($to,$from,$message,$headers);
+
+                                }
+                                
+                                ?>
                                     <p>To get latest update and news regularly</p>
                                     <h4><span>Subscribe</span> <br> our Newsletter now</h4>
                                     <form action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="footer-subscribe-form validate" target="_blank" novalidate>
                                         <div id="mc_embed_signup_scroll">
                                             <div id="mc-form" class="mc-form subscribe-form">
-                                                <input id="mc-email" type="text" autocomplete="off" placeholder="Enter your name" />
+                                                <!-- <input id="mc-email" type="text" autocomplete="off" placeholder="Enter your name" />
                                                 <input id="mc-email" type="email" autocomplete="off" placeholder="Enter your email" />
                                                 <input type="checkbox" id="c1" name="cc" />
                                                 <label for="c1"><span></span>Life Science</label>
@@ -436,7 +488,19 @@ $sql = "select  * from articals where journal_id = $id";
                                                 <input type="checkbox" id="c3" name="cc" />
                                                 <label for="c3"><span></span>Chemical Science</label>
                                                 <br />
-                                                <button id="mc-submit" class="df-btn">Subscribe</button>
+                                                <button id="mc-submit" class="df-btn">Subscribe</button> -->
+                                                <input id="mc-email" name="sname" type="text" autocomplete="off" placeholder="Enter your name" required />
+                                                <input id="mc-email" name="semail" type="text" autocomplete="off" placeholder="Enter your email" required />
+                                                <input type="checkbox" id="c1" name="l" value="1" />
+                                                <label for="c1"><span></span>Life Science</label>
+                                                <br />
+                                                <input type="checkbox" id="c2" name="h" value="1" />
+                                                <label for="c2"><span></span>Health Science</label>
+                                                <br />
+                                                <input type="checkbox" id="c3" name="c" value="1" />
+                                                <label for="c3"><span></span>Chemical Science</label>
+                                                <br />
+                                                <button type="submit" name="ssubmit" id="mc-submit" class="df-btn">Subscribe</button>
                                             </div>
 
                                         </div>
@@ -446,26 +510,35 @@ $sql = "select  * from articals where journal_id = $id";
                             <!--Single Sidebar Widget End-->
                         
                         <h4>Recommended articles</h4>
+                        <?php
+                        
+                        $sqlar = "select * from articals where journal_id=$id limit 4";
+                        $resultar = mysqli_query($con,$sqlar);
+                        while($datar = mysqli_fetch_array($resultar)){
+                            $st = $datar['artical_name'];
+                            $sr = str_replace(" ","-",$st);
+                        ?>
                         <div class="recomand-article">
+                            <a href="articles/<?php echo $id;?>/<?php echo $datar['artical_id'] ;?>/<?php echo $sr; ?>"><?php echo $datar['artical_name']; ?></a>
+                            <!-- <p>Saudi Pharmaceutical Journal, Volume 24, Issue 4, 2016, </p> -->
+                            <a href="#"><img src="assets/images/PDF_32.png">Download PDF</a>
+                        </div>
+                        <?php } ?>
+                       <!-- <div class="recomand-article">
                             <a href="#">Biosynthesis of metallic nanoparticles using plant </a>
                             <p>Saudi Pharmaceutical Journal, Volume 24, Issue 4, 2016, </p>
                             <a href="#"><img src="assets/images/PDF_32.png">Download PDF</a>
-                        </div>
-                        <div class="recomand-article">
+                        </div> -->
+                        <!-- <div class="recomand-article">
                             <a href="#">Biosynthesis of metallic nanoparticles using plant </a>
                             <p>Saudi Pharmaceutical Journal, Volume 24, Issue 4, 2016, </p>
                             <a href="#"><img src="assets/images/PDF_32.png">Download PDF</a>
-                        </div>
-                        <div class="recomand-article">
+                        </div> -->
+                        <!-- <div class="recomand-article">
                             <a href="#">Biosynthesis of metallic nanoparticles using plant </a>
                             <p>Saudi Pharmaceutical Journal, Volume 24, Issue 4, 2016, </p>
                             <a href="#"><img src="assets/images/PDF_32.png">Download PDF</a>
-                        </div>
-                        <div class="recomand-article">
-                            <a href="#">Biosynthesis of metallic nanoparticles using plant </a>
-                            <p>Saudi Pharmaceutical Journal, Volume 24, Issue 4, 2016, </p>
-                            <a href="#"><img src="assets/images/PDF_32.png">Download PDF</a>
-                        </div>
+                        </div> -->
                         <br>
                         <div>
                         </div>
