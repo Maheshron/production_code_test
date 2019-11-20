@@ -35,7 +35,8 @@ RewriteRule ^Keywords/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+) key?journal_id=$1&journal_t
 RewriteRule ^k?$ keywords-detail.php
 RewriteRule ^keyword/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+) k?journal_id=$1&keyword_id=$2&keyword_title=$3 [QSA,L]
 
-
+RewriteRule ^rc?$ archive.php
+RewriteRule ^archive/([a-zA-Z0-9])/([a-zA-Z0-9]+)  prc?journal_id$1&journal_title=$2 [QSA,L]
 
 RewriteRule ^ar?$ article.php
 RewriteRule ^articles/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+) ar?journal_id=$1&artical_id=$2&artical_title=$3 [QSA,L]

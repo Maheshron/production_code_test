@@ -280,7 +280,7 @@ $r = str_replace(" ","-",$t);
                                             <li><a href="article-in-press/<?php echo $id; ?>/<?php  echo $r; ?>"><i class="fa fa-angle-right" aria-hidden="true"></i> Articles in press</a></li>
                                             <li><a href="current_issues/<?php echo $id; ?>/<?php  echo $r; ?>"><i class="fa fa-angle-right" aria-hidden="true"></i> Current issues</a></li>
                                             <li><a href="previous_issues/<?php echo $id; ?>/<?php  echo $r; ?>"><i class="fa fa-angle-right" aria-hidden="true"></i> previous issues</a></li>
-                                            <li><a href="archive.php"><i class="fa fa-angle-right" aria-hidden="true"></i> All issues</a></li>
+                                            <li><a href="archive/<?php  echo $id;?>/<?php echo $r; ?>"><i class="fa fa-angle-right" aria-hidden="true"></i> All issues</a></li>
                                             <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Special issues</a></li>
                                             <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Best Articles</a></li>
 

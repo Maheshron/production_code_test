@@ -30,7 +30,8 @@
     <link href="assets/images/favicon.ico" type="img/x-icon" rel="shortcut icon">
     <!-- All css files are included here. -->
     
-    <base href="http://metrocoolsolutions.in/test2/newedeweles/fend/" />
+    <base href="http://localhost/newedeweles_production/fend/" />
+
     
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -131,7 +132,7 @@
                                 <ul>
                                     <li><a href="journal-list.php">Journals List</a>
                                     </li>
-                                    <li><a href="index.html">Articals</a>
+                                    <li><a href="#">Articals</a>
                                     </li>
                                     <li><a href="contact.php">Contact Us</a>
                                     </li>
@@ -214,7 +215,7 @@
 
                     <div class="col-lg-3">
                         <div class="keywords-sec">
-                            <img src="assets/images/keywords/hypertension.jpg">
+                            <img src="../edelweiss/upload/keyword_images/<?php  echo $data['image'];?>">
                             <h3></h3>
                             <div class="single-sidebar-widget mb-30 mb-xs-20">
                                 <h4>Keywords</h4>
@@ -352,7 +353,7 @@
                                                 </div>
                                             </div>
                                             <div class="member-info">
-                                                <h3 class="member-name"> <?php echo $row4['designation']; ?></h3>
+                                                <h3 class="member-name"> <?php echo $row4['first_name'] ,$row4['last_name']; ?></h3>
                                                 <span class="member-role"><?php echo $row4['editor_designation']; ?></span>
                                             </div>
                                         </div>
