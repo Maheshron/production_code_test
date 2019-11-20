@@ -41,6 +41,10 @@ RewriteRule ^archive/([a-zA-Z0-9])/([a-zA-Z0-9]+)  prc?journal_id$1&journal_titl
 RewriteRule ^ar?$ article.php
 RewriteRule ^articles/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+) ar?journal_id=$1&artical_id=$2&artical_title=$3 [QSA,L]
 
+RewriteRule ^arc?$ archive.php
+RewriteRule ^archive/([a-zA-Z0-9])/([a-zA-Z0-9]+)  arc?journal_id$1&journal_title=$2 [QSA,L]
+
+
 RewriteRule ^d?$ download.php
 RewriteRule ^edeweles/articles/([a-zA-Z0-9]+)  d?artical_id=$1&artical_title=$2 [QSA,L]
 
