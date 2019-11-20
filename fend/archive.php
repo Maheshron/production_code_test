@@ -333,8 +333,10 @@ $result = mysqli_query($con,$sql);
                                                     </div>
                                                 </div>
                                             </div>
-                                       <?php  endforeach; ?>
+                                       
+                                       
                                         </div>
+                                        <?php  endforeach; ?>
                                         <!-- <div class="card">
                                             <div class="card-header" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" id="headingTwo">
                                                 <h5 class="mb-0">
