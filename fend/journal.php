@@ -43,7 +43,7 @@ $r = str_replace(" ","-",$t);
     <!-- Place favicon.ico in the root directory -->
     <link href="assets/images/favicon.ico" type="img/x-icon" rel="shortcut icon">
     <!-- All css files are included here. -->
-    <base href="http://localhost/production_code_test/fend/" />
+    <base href="http://localhost/newedeweles_production/fend/" />
     
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -399,7 +399,7 @@ $r = str_replace(" ","-",$t);
                                                 <div class="auther-name">
                                                     <p><?php echo $row4['author_names']; ?></p>
                                                 </div>
-                                        <div class="download-pdf"><a href="edeweles/<?php echo $row4['artical_id']; ?>/<?php echo $ar2; ?>"><img src="assets/images/PDF_32.png"></a></div>
+                                        <div class="download-pdf"><a href="edeweles/<?php echo $row3['artical_id']; ?>/<?php echo $ar; ?>" target="_blank"><img src="assets/images/PDF_32.png"></a></div>
                                             </div>
                                             <?php } ?>
                                             <!-- <div class="col-lg-6 nopadding">
@@ -531,7 +531,7 @@ $r = str_replace(" ","-",$t);
                                                         <div class="auther-name">
                                                             <p><?php echo $row7['author_names']; ?></p>
                                                         </div>
-                                                        <div class="download-pdf"><a href="download.php?artical_id=12"><img src="assets/images/PDF_32.png"></a></div>
+                                                        <div class="download-pdf"><a href="edeweles/<?php echo $row7['artical_id']; ?>/<?php echo $ar; ?>" target="_blank"><img src="assets/images/PDF_32.png"></a></div>
                                                     </div>
                                                     <?php } ?>
                                                     <!-- <div class="col-lg-3 nopadding">
@@ -578,7 +578,7 @@ $r = str_replace(" ","-",$t);
                                                         <div class="auther-name">
                                                             <p><?php echo $row8['author_names']; ?></p>
                                                         </div>
-                                                <div class="download-pdf"><a href="download.php?artical_id=12"><img src="assets/images/PDF_32.png"></a></div>
+                                                <div class="download-pdf"><a href="edeweles/<?php echo $row8['artical_id']; ?>/<?php echo $ar; ?>" target="_blank"><img src="assets/images/PDF_32.png"></a></div>
                                                     </div>
                                                     <?php } ?>
                                                     <!-- <div class="col-lg-3 nopadding">
@@ -655,7 +655,7 @@ $r = str_replace(" ","-",$t);
                                                         <div class="auther-name">
                                                             <p><?php echo $row9['author_names']; ?></p>
                                                         </div>
-                                                <div class="download-pdf"><a href="download.php?artical_id=<?php $row9['artical_id']; ?>"><img src="assets/images/PDF_32.png"></a></div>
+                                                <div class="download-pdf"><a href="edeweles/<?php echo $row9['artical_id']; ?>/<?php echo $ar; ?>" target="_blank"><img src="assets/images/PDF_32.png"></a></div>
                                                     </div>
                                                     <?php } ?>
                                                     <!-- <div class="col-lg-3  nopadding">
@@ -712,7 +712,7 @@ $r = str_replace(" ","-",$t);
                                                         <div class="auther-name">
                                                             <p><?php echo $row10['author_names']; ?></p>
                                                         </div>
-                                                <div class="download-pdf"><a href="download.php?artical_id=<?php echo $row10['artical_id']; ?>"><img src="assets/images/PDF_32.png"></a></div>
+                                                <div class="download-pdf"><a href="edeweles/<?php echo $row10['artical_id']; ?>/<?php echo $ar; ?>" target="_blank"><img src="assets/images/PDF_32.png"></a></div>
                                                     </div>
                                                     <?php } ?>
                                                     <!-- <div class="col-lg-3 nopadding">
@@ -789,7 +789,7 @@ $r = str_replace(" ","-",$t);
                                                         <div class="auther-name">
                                                             <p><?php echo $row11['author_names']; ?></p>
                                                         </div>
-                                                <div class="download-pdf"><a href="download.php?artical_id=<?php echo $row11['artical_id']; ?>"><img src="assets/images/PDF_32.png"></a></div>
+                                                <div class="download-pdf"><a href="edeweles/<?php echo $row11['artical_id']; ?>/<?php echo $ar; ?>" target="_blank"><img src="assets/images/PDF_32.png"></a></div>
                                                     </div>
                                                     <?php } ?>
                                                     <!-- <div class="col-lg-3  nopadding">
@@ -845,7 +845,7 @@ $r = str_replace(" ","-",$t);
                                                         <div class="auther-name">
                                                             <p><?php echo $row12['author_names']; ?></p>
                                                         </div>
-                                                <div class="download-pdf"><a href="download.php?artical_id=<?php echo $row12['artical_id']; ?>"><img src="assets/images/PDF_32.png"></a></div>
+                                                <div class="download-pdf"><a href="edeweles/<?php echo $row12['artical_id']; ?>/<?php echo $ar; ?>" target="_blank"><img src="assets/images/PDF_32.png"></a></div>
                                                     </div>
                                                     <?php } ?>
                                                    

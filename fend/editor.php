@@ -21,6 +21,9 @@ $data = mysqli_fetch_array($result);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico in the root directory -->
     <link href="assets/images/favicon.ico" type="img/x-icon" rel="shortcut icon">
+   
+    <base href="http://localhost/newedeweles_production/fend/" />
+   
     <!-- All css files are included here. -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">

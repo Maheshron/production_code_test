@@ -255,7 +255,7 @@ $r = str_replace(" ","-",$t);
                                     <div class="card__footer row  clear-fix">
                                         <div class="col-md-3 hidden-xs hidden-sm">
                                             <span>
-                                                 <a type="submit" class="btn btn-primary " href="editor.php?editor_id=<?php echo $row['editor_id']; ?>&journal_id=<?php echo $id; ?>">Biography</a>
+                                                 <a type="submit" class="btn btn-primary " href="editor/<?php echo $row['editor_id']; ?>/<?php echo $id; ?>">Biography</a>
                                             </span>
                                         </div>
                                         <div class="col-md-6 text-center col-xs-12">

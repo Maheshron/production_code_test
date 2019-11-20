@@ -1,8 +1,8 @@
 <?php 
 include "connect.php";
-$sql = "select * from journal limit 0,5";
+$sql = "select * from journal limit 5";
 $result = mysqli_query($con,$sql);
-$sql1 = "select * from journal limit 5,9";
+$sql1 = "select * from journal limit 9";
 $result1 = mysqli_query($con,$sql1);
 
 ?>
@@ -27,6 +27,12 @@ $result1 = mysqli_query($con,$sql1);
     <!-- Modernizr JS -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
     <style>
+
+.single-list-arcive li a img {
+    height: 40px;
+    width: 30px;
+    margin-right: 10px
+}
 
         .journal-heading{
             background-color: #009EDD;
@@ -108,16 +114,7 @@ $result1 = mysqli_query($con,$sql1);
     color: #2b96cc;
     line-height: 20px;
         }
-        .single-list-arcive li a{
-            font-size: 16px;
-    line-height: 26px;
-    font-weight: 300;
-    display: block;
-    padding: 10px 10px 10px 35px;
-    cursor: pointer;
-    background-color: #7ec8fd;
-            margin-bottom: 5px;
-        }
+    
         .sec-1{
             margin: 2em 0px;
         }
@@ -130,6 +127,30 @@ $result1 = mysqli_query($con,$sql1);
         .top-img-area{
             background-image: url(assets/images/banner-journal.jpg);
         }
+        .single-list-arcive li a {
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 300;
+    display: block;
+    padding: 10px 0px;
+    cursor: pointer;
+    /* background-color: #7ec8fd; */
+    margin-bottom: 5px;
+    color: #000;
+    transition: 0.15s;
+    -webkit-transition: 0.15s;
+    -moz-transition: 0.15s;
+    padding: 10px;
+    border: solid 1px #ebecee;
+}
+
+.single-list-arcive li a:hover {
+    color: #2B96CC;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #2b96cc;
+    padding: 10px;
+    font-size: 18px;
+}
     </style>
 </head>
 
@@ -222,8 +243,11 @@ $result1 = mysqli_query($con,$sql1);
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6">
                                         <div class="single-list-arcive mt-20">
-                                            <ul> <?php while($row = mysqli_fetch_array($result)){ ?>
-                                                <li><a href="journal.php?journal_id=<?php echo $row['id']; ?>"><i class="fa fa-angle-double-right"></i> <?php echo $row['journal_title']; ?></a></li>
+                                            <ul> <?php while($row = mysqli_fetch_array($result)){ 
+                                                $s1 = $row['journal_title'];
+                                                $rs1 = str_replace(" ","-",$s1);
+                                                ?>
+                                                <li><a href="journals/<?php echo $row['id']; ?>/<?php echo $rs1; ?>"><img src="../edelweiss/upload/journal_logos/<?php echo $row['journal_img'] ?>"><?php echo $row['journal_title']; ?></a></li>
                                             <?php } ?>
                                                 <!-- <li><a href="#"><i class="fa fa-angle-double-right"></i> Biochemistry and Modern Applications </a></li>
                                                 <li><a href="#"><i class="fa fa-angle-double-right"></i> Nursing and Health Care</a></li>
@@ -239,8 +263,11 @@ $result1 = mysqli_query($con,$sql1);
                                         <div class="single-list-arcive mt-20">
 
                                             <ul>
-                                            <?php while($row1 = mysqli_fetch_array($result1)){ ?>
-                                                <li><a href="journal.php?journal_id=<?php echo $row1['id']; ?>"><i class="fa fa-angle-double-right"></i><?php echo $row1['journal_title'];?></a></li>
+                                            <?php while($row1 = mysqli_fetch_array($result1)){ 
+                                                 $s = $row1['journal_title'];
+                                                 $rs = str_replace(" ","-",$s);
+                                                ?>
+                                                <li><a href="journals/<?php echo $row1['id']; ?>/<?php echo $rs; ?>"><img src="../edelweiss/upload/journal_logos/<?php echo $row1['journal_img'] ?>"><?php echo $row1['journal_title']; ?></a></li>
                                                 <!-- <li><a href="#"><i class="fa fa-angle-double-right"></i> Journal of heterocyclics</a></li>
                                                 <li><a href="#"><i class="fa fa-angle-double-right"></i> Journal of Obesity & Diabetes</a></li>
                                                 <li><a href="#"><i class="fa fa-angle-double-right"></i> Nanomaterial Chemistry and Technology</a></li>
@@ -253,11 +280,17 @@ $result1 = mysqli_query($con,$sql1);
                                     </div>
                                 </div>
                                 <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="sub-section ">
+                                    <?php $sqlcatj = "select * from subcategories";
+                                           $resultcatj = mysqli_query($con,$sqlcatj);
+                                           while($rowj = mysqli_fetch_array($resultcatj)){
+                                               ?>
+                                           
+                                    
                                     <div class="sec-1">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div  class="main-title">
-                                                    <h3 id="biomedicine" style="color: #2B96CC">Biomedicine</h3>
+                                                    <h3 id="<?php echo $rowj['s_cat_title']; ?>" style="color: #2B96CC"><?php echo $rowj['s_cat_title'] ;?></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -265,7 +298,41 @@ $result1 = mysqli_query($con,$sql1);
                                             <div class="col-lg-4 col-md-6">
                                                 <div class="single-list-arcive mt-20">
                                                     <ul>
-                                                        <li><a href="#"><i class="fa fa-file-text-o"></i> What is the basic starter?</a></li>
+                                                    <?php
+                                                          $id = $rowj['s_cat_id'];
+                                                          
+                                                          $sqljs = "select * from subcategories where s_cat_id= $id";
+                                                          $resultjs = mysqli_query($con,$sqljs);
+                                                          $datajs = mysqli_fetch_array($resultjs);
+                                                          $catjour = $datajs['journals'];
+                                                          //echo $catjour;
+                                                          $catjour1 = explode(',',$catjour);
+                                                          //print_r($catjour1);
+                                                          $arr = [];
+                                                          foreach($catjour1 as $b):
+                                                             if($b == ""){
+                                                                 continue;
+                                                             }  
+                                                             else{
+                                                                 array_push($arr,$b);
+                                                             }
+                                                        endforeach;
+                                                        //print_r($arr);
+                                                        
+                                                          foreach($arr as $ct):
+                                                              $singlej = "select * from journal where id = $ct";
+                                                              $singler = mysqli_query($con,$singlej);
+                                                              $singledata = mysqli_fetch_array($singler);
+                                                              $s8 = $singledata['journal_title'];
+                                                            $rs8 = str_replace(" ","-",$s8);
+                                                              
+                                                              ?>
+                                                         
+                                                         <li><a href="journals/<?php echo $ct; ?>/<?php echo $rs8; ?>"><img src="../edelweiss/upload/journal_logos/<?php echo $singledata['journal_img'] ?>"><?php echo $singledata['journal_title']; ?></a></li>
+                                                          <?php endforeach;
+                                                         
+                                                    ?>
+                                                        <!-- <li><a href="#"><i class="fa fa-file-text-o"></i> What is the basic starter?</a></li>
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> How to get started?</a></li>
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> How to update to a new version?</a></li>
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> How to add a 3rd-party plugin?</a></li>
@@ -278,7 +345,7 @@ $result1 = mysqli_query($con,$sql1);
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> What is the basic starter?</a></li>
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> How to get started?</a></li>
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> How to update to a new version?</a></li>
-                                                        <li><a href="#"><i class="fa fa-file-text-o"></i> How to add a 3rd-party plugin?</a></li>
+                                                        <li><a href="#"><i class="fa fa-file-text-o"></i> How to add a 3rd-party plugin?</a></li> -->
 
                                                     </ul>
                                                 </div>
@@ -287,7 +354,42 @@ $result1 = mysqli_query($con,$sql1);
                                                 <div class="single-list-arcive mt-20">
 
                                                     <ul>
-                                                        <li><a href="#"><i class="fa fa-file-text-o"></i> What is the basic starter?</a></li>
+
+                                                    <?php
+                                                          $id = $rowj['s_cat_id'];
+                                                          
+                                                          $sqljs = "select * from subcategories where s_cat_id= $id";
+                                                          $resultjs = mysqli_query($con,$sqljs);
+                                                          $datajs = mysqli_fetch_array($resultjs);
+                                                          $catjour = $datajs['journals'];
+                                                          //echo $catjour;
+                                                          $catjour1 = explode(',',$catjour);
+                                                          //print_r($catjour1);
+                                                          $arr = [];
+                                                          foreach($catjour1 as $b):
+                                                             if($b == ""){
+                                                                 continue;
+                                                             }  
+                                                             else{
+                                                                 array_push($arr,$b);
+                                                             }
+                                                        endforeach;
+                                                        //print_r($arr);
+                                                        
+                                                          foreach($arr as $ct):
+                                                              $singlej = "select * from journal where id = $ct";
+                                                              $singler = mysqli_query($con,$singlej);
+                                                              $singledata = mysqli_fetch_array($singler);
+                                                              $s8 = $singledata['journal_title'];
+                                                            $rs8 = str_replace(" ","-",$s8);
+                                                              
+                                                              ?>
+                                                         
+                                                         <li><a href="journals/<?php echo $ct; ?>/<?php echo $rs8; ?>"><img src="../edelweiss/upload/journal_logos/<?php echo $singledata['journal_img'] ?>"><?php echo $singledata['journal_title']; ?></a></li>
+                                                          <?php endforeach;
+                                                         
+                                                    ?>
+                                                        <!-- <li><a href="#"><i class="fa fa-file-text-o"></i> What is the basic starter?</a></li>
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> How to get started?</a></li>
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> How to update to a new version?</a></li>
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> How to add a 3rd-party plugin?</a></li>
@@ -299,7 +401,7 @@ $result1 = mysqli_query($con,$sql1);
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> How to update to a new version?</a></li>
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> What is the basic starter?</a></li>
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> How to get started?</a></li>
-                                                        <li><a href="#"><i class="fa fa-file-text-o"></i> How to update to a new version?</a></li>
+                                                        <li><a href="#"><i class="fa fa-file-text-o"></i> How to update to a new version?</a></li> -->
 
 
                                                     </ul>
@@ -309,7 +411,42 @@ $result1 = mysqli_query($con,$sql1);
                                                 <div class="single-list-arcive mt-20">
 
                                                     <ul>
-                                                        <li><a href="#"><i class="fa fa-file-text-o"></i> What is the expert starter?</a></li>
+
+                                                    <?php
+                                                          $id = $rowj['s_cat_id'];
+                                                          
+                                                          $sqljs = "select * from subcategories where s_cat_id= $id";
+                                                          $resultjs = mysqli_query($con,$sqljs);
+                                                          $datajs = mysqli_fetch_array($resultjs);
+                                                          $catjour = $datajs['journals'];
+                                                          //echo $catjour;
+                                                          $catjour1 = explode(',',$catjour);
+                                                          //print_r($catjour1);
+                                                          $arr = [];
+                                                          foreach($catjour1 as $b):
+                                                             if($b == ""){
+                                                                 continue;
+                                                             }  
+                                                             else{
+                                                                 array_push($arr,$b);
+                                                             }
+                                                        endforeach;
+                                                        //print_r($arr);
+                                                        
+                                                          foreach($arr as $ct):
+                                                              $singlej = "select * from journal where id = $ct";
+                                                              $singler = mysqli_query($con,$singlej);
+                                                              $singledata = mysqli_fetch_array($singler);
+                                                              $s8 = $singledata['journal_title'];
+                                                            $rs8 = str_replace(" ","-",$s8);
+                                                              
+                                                              ?>
+                                                         
+                                                         <li><a href="journals/<?php echo $ct; ?>/<?php echo $rs8; ?>"><img src="../edelweiss/upload/journal_logos/<?php echo $singledata['journal_img'] ?>"><?php echo $singledata['journal_title']; ?></a></li>
+                                                          <?php endforeach;
+                                                         
+                                                    ?>
+                                                        <!-- <li><a href="#"><i class="fa fa-file-text-o"></i> What is the expert starter?</a></li>
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> How to get started?</a></li>
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> What is the available gulp tasks?</a></li>
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> How to update to a new version?</a></li>
@@ -322,7 +459,7 @@ $result1 = mysqli_query($con,$sql1);
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> What is the basic starter?</a></li>
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> How to get started?</a></li>
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> How to update to a new version?</a></li>
-                                                        <li><a href="#"><i class="fa fa-file-text-o"></i> How to add a 3rd-party plugin?</a></li>
+                                                        <li><a href="#"><i class="fa fa-file-text-o"></i> How to add a 3rd-party plugin?</a></li> -->
 
 
                                                     </ul>
@@ -330,7 +467,8 @@ $result1 = mysqli_query($con,$sql1);
                                             </div>
                                         </div>
                                     </div>
-
+                                           <?php } ?>
+<!--                          
                                     <div class="sec-1">
                                         <div class="row">
                                             <div class="col-lg-12">
@@ -875,7 +1013,7 @@ $result1 = mysqli_query($con,$sql1);
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="col-lg-3 article-area grey-bg right-sec" id="sticky-sidebar">
@@ -894,14 +1032,23 @@ $result1 = mysqli_query($con,$sql1);
                                     <div id="navbar-example2">
                                     <h4 style="color: #2B96CC">Browse By Subjects</h4>
                                     <ul class="list-of-article">
-                                        <li><a class="nav-link1" href="#biomedicine"><i class="fa fa-angle-double-right"></i>Biomedicine</a> </li>
+
+                                    <?php
+                                    
+                                    $sqlcat = "select * from subcategories";
+                                    $resultcat = mysqli_query($con,$sqlcat);
+                                    while($rowcat = mysqli_fetch_array($resultcat)){
+                                    ?>
+                                    <li><a class="nav-link1" href="#<?php echo $rowcat['s_cat_title'] ?>"><i class="fa fa-angle-double-right"></i><?php echo $rowcat['s_cat_title']; ?></a> </li>
+                                        <!-- <li><a class="nav-link1" href="#biomedicine"><i class="fa fa-angle-double-right"></i>Biomedicine</a> </li>
                                         <li><a class="nav-link1" href="#chemistry"><i class="fa fa-angle-double-right"></i>Chemistry</a> </li>
                                         <li><a class="nav-link1" href="#dentistry"><i class="fa fa-angle-double-right"></i>Dentistry</a> </li>
                                         <li><a class="nav-link1" href="#materials"><i class="fa fa-angle-double-right"></i>Materials Science</a> </li>
                                         <li><a class="nav-link1" href="#medicine"><i class="fa fa-angle-double-right"></i>Medicine</a> </li>
                                         <li><a class="nav-link1" href="#neurology"><i class="fa fa-angle-double-right"></i>Neurology</a> </li>
                                         <li><a class="nav-link1" href="#pharmacy"><i class="fa fa-angle-double-right"></i>Pharmacy</a> </li>
-                                        <li><a class="nav-link1" href="#radiology"><i class="fa fa-angle-double-right"></i>Radiology</a> </li>
+                                        <li><a class="nav-link1" href="#radiology"><i class="fa fa-angle-double-right"></i>Radiology</a> </li> -->
+                                    <?php } ?>
                                     </ul>
                                 </div>
                             </div>

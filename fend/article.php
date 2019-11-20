@@ -393,15 +393,15 @@ $r = str_replace(' ','-',$t);
                     <div class="col-md-3">
                         <h4>Outline</h4>
                         <ul class="artical-list">
-                            <li><a href="#">Chemical Engineering</a></li>
-                            <li><a href="#">Chemistry</a></li>
-                            <li><a href="#">Computer Science</a></li>
-                            <li><a href="#">Earth and Planetary Sciences</a></li>
-                            <li><a href="#">Energy</a></li>
-                            <li><a href="#">Engineering</a></li>
-                            <li><a href="#">Materials Science</a></li>
-                            <li><a href="#">Mathematics</a></li>
-                            <li><a href="#">Physics and Astronomy</a></li>
+                            <li><a href="journal-book-list.php">Chemical Engineering</a></li>
+                            <li><a href="journal-book-list.php">Chemistry</a></li>
+                            <li><a href="journal-book-list.php">Computer Science</a></li>
+                            <li><a href="journal-book-list.php">Earth and Planetary Sciences</a></li>
+                            <li><a href="journal-book-list.php">Energy</a></li>
+                            <li><a href="journal-book-list.php">Engineering</a></li>
+                            <li><a href="journal-book-list.php">Materials Science</a></li>
+                            <li><a href="journal-book-list.php">Mathematics</a></li>
+                            <li><a href="journal-book-list.php">Physics and Astronomy</a></li>
                         </ul>
                         <br>
                         <div>

@@ -510,10 +510,13 @@ if(isset($_POST['submit'])){
                                                         <div class="col-lg-6">
                                                             <h4 class="artical-head">Popular Articles</h4>
                                                             <ul class="journal-list">
-                                                                <?php while($row = mysqli_fetch_array($result2)){ ?>
+                                                                <?php while($row = mysqli_fetch_array($result2)){
+                                                                           $t1 = $row['artical_name'];
+                                                                           $ar = str_replace(" ","-",$t1);
+                                                                    ?>
                                                                 <li>
 
-                                                                    <a href="article.php?artical_id=<?php echo $row['artical_id'];?>"><span><?php echo $row['artical_short_name']; ?></span></a>
+                                                                    <a href="articles/<?php echo $jid; ?>/<?php echo $row['artical_id']; ?>/<?php echo $ar; ?>"><span><?php echo $row['artical_short_name']; ?></span></a>
                                                                     <?php $jid = $row['journal_id'];
                                                                     $jname = "select journal_title from journal where id = '$jid'";
                                                                     $jresult = mysqli_query($con,$jname);
