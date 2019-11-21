@@ -978,7 +978,25 @@ include "config.php";
       }
       
 
-      
+      public function delete_journal_id1($subcat,$cat,$p_id){
+
+        $sqlcat = "select * from subcategories where cat_id='$cat' and s_cat_title='".$subcat."' ";
+        $resultcat = mysqli_query($this->db,$sqlcat);
+        $catdata = mysqli_fetch_array($resultcat);
+      $messages=$catdata['journals'].$p_id;
+
+
+
+ $sql299 = "UPDATE
+   `subcategories`
+SET
+   `journals` = TRIM(BOTH ',' FROM REPLACE(CONCAT(',', `journals`), ',$p_id', ''))
+WHERE
+   FIND_IN_SET('$p_id', `journals`)";
+         $result299 = mysqli_query($this->db,$sql299);
+       return $result299;
+        
+       }
         public function update_issue($id,$status){
           $sql51  = "update articals set status_type = '$status' where artical_id ='$id' ";
           $result51 = mysqli_query($this->db,$sql51);

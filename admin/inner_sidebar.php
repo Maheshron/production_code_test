@@ -144,7 +144,7 @@ if(isset($_REQUEST['categorie']) && isset($_REQUEST['sub_categorie'])){
         </li>
 -->
         <li class="site-menu-item has-sub">
-          <a href="article_status1.php?journal_id=<?php echo $journal_id; ?>">
+          <a href="duplicate_archive.php?journal_id=<?php echo $journal_id; ?>">
                     <i class="site-menu-icon wb-thumb-up" aria-hidden="true"></i>
                     <span class="site-menu-title">Archive</span>
                 </a>
@@ -158,7 +158,7 @@ if(isset($_REQUEST['categorie']) && isset($_REQUEST['sub_categorie'])){
          
         </li>
         <li class="site-menu-item has-sub">
-          <a href="previous_issues.php?journal_id=<?php echo $journal_id; ?>">
+          <a href="previous_issues_dup.php?journal_id=<?php echo $journal_id; ?>">
                     <i class="site-menu-icon wb-video" aria-hidden="true"></i>
                     <span class="site-menu-title">Previous Issues</span>
                 </a>

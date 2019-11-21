@@ -6,8 +6,9 @@ $sc = $_GET['sub_categories'];
 $sql = "select * from subcategories where cat_id = $c and s_cat_id=$sc";
 $result = mysqli_query($user->db,$sql);
 $data = mysqli_fetch_array($result);
-// print_r($data);
-// exit;
+$subcattitle=$data['s_cat_title'];
+ //print_r($data);
+  //exit;
 $journal_id =  explode(",",$data['journals']);
 
 
@@ -97,20 +98,29 @@ $journal_id =  explode(",",$data['journals']);
             $data2 = mysqli_fetch_array($result2);
             ?>
           <li>
+
+            <?php if(empty($data2)){  ?>
+                 
+               <?php  }else{ ?>
             <div class="panel">
-              <figure class="overlay overlay-hover animation-hover">
+             
+                
+                 <figure class="overlay overlay-hover animation-hover">
                  <div  title="Journal Title" style="height:60px;font-size:15px"><b><?php echo $data2['journal_title']; ?> Journal</b></div>
+              
+
                 <figcaption class="overlay-panel overlay-background overlay-fade text-center vertical-align animation-hover">
                   <div class="btn-group">
                    
-                    <a href="" class="btn btn-icon btn-pure btn-default" title="Delete"
+                    <a href="deletebyid.php?p_id=<?php echo $data2['id']; ?>&categories=<?php echo $c; ?>&subcat=<?php echo $subcattitle; ?>" class="btn btn-icon btn-pure btn-default" title="Delete"
                       ><i class="icon wb-trash" aria-hidden="true"></i></a>
                   </div>
-                  <a href="categorized_journals.php?sub_categories<?php echo $row['s_cat_id']; ?>?categories=<?php echo $c; ?>" class="btn btn-outline btn-default project-button" title="View Journal"><i class="icon wb-eye" aria-hidden="true" ></i> Go</a>
+                  <a href="categorized_journals.php?sub_categories=<?php echo $data['s_cat_id']; ?>?categories=<?php echo $c; ?>" class="btn btn-outline btn-default project-button" title="View Journal"><i class="icon wb-eye" aria-hidden="true" ></i> Go</a>
                 </figcaption>
               </figure>
-               
+                
             </div>
+            <?php } ?>
           </li>
          <?php endforeach; ?>
 

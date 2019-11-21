@@ -127,6 +127,23 @@
           }
 
         }
+
+        if(isset($_REQUEST['subcat'])){
+
+          extract($_REQUEST);
+          $cat=$_GET['categories'];
+          $delete = $user->delete_journal_id1($subcat,$cat,$p_id);
+          if($delete){
+           echo '<script> setTimeout(function () { swal("Success ! ","Successfully Deleted","success");}, 2000); </script>';
+          
+          }
+          else{
+                // Login Failed
+           echo '<script> setTimeout(function () { swal("An Error Occured ! ","Something Went Wrong","error");}, 2000); </script>';
+          }
+
+        }
+
      ?>
     
   </div>
