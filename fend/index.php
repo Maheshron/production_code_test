@@ -607,20 +607,50 @@ if(isset($_POST['submit'])){
                                                             <ul class="journal-list">
                                                             <?php 
                                                             $applied = 'applied';
-                                                             $sql6 = "select * from journal where categorie = '$applied'";
+                                                             $sql6 = "select * from subcategories where s_cat_id = 2";
+                                                             
                                                              $result6 = mysqli_query($con,$sql6);
-                                                             while($row = mysqli_fetch_array($result6)){
+                                                             $data6 = mysqli_fetch_array($result6);
+                                                             $cat =  $data6['journals'];
+                                                             $cat1 = explode(',',$cat);
+                                                             $arr = [];
+                                                             foreach($cat1 as $b):
+                                                                if($b == ""){
+                                                                    continue;
+                                                                }
+                                                                else{
+                                                                    array_push($arr,$b);
+                                                                }
+                                                            endforeach;
+                                                             foreach($arr as $ct):
+                                                                
+                                                                
+                                                                $sqlsj1 = "select * from journal where id = $ct";
+                                                                $resultj1 = mysqli_query($con,$sqlsj1);
+                                                            
+                                                                $dataj1 = mysqli_fetch_array($resultj1);
+                                                                $tempname1 = $dataj1['journal_title'];
+                                                                $replace1 = str_replace(' ','-',$tempname1);
+                                                                //print_r($dataj1['journal_title']);
+                                                                //exit;
+                                                                $ar = "select * from articals where journal_id = $ct limit 1";
+                                                                $ra = mysqli_query($con,$ar);
+                                                                $d = mysqli_fetch_array($ra);
+                                                                $tempname2 = $d['artical_short_name'];
+                                                                $replace2 = str_replace(" ","-",$tempname2);
+
+
 
                                                              
                                                             
                                                             ?>
                                                                 <li>
 
-                                                                    <a href="#"><span>Nanoparticles: Properties, applications and toxicities</span></a>
-                                                                    <p><a href="#"> Arabian Journal of Chemistry </a></p>
+                                                                    <a href="articles/<?php echo $ct; ?>/<?php echo $d['artical_id']; ?>/<?php echo $replace2; ?>"><span><?php echo  $d['artical_short_name']; ?></span></a>
+                                                                    <p><a href="journals/<?php echo $ct; ?>/<?php echo $replace1; ?>"> <?php echo $dataj1['journal_title']; ?> </a></p>
 
                                                                 </li>
-                                                             <?php } ?>
+                                                             <?php  endforeach; ?>
                                                                 <!-- <li>
 
                                                                     <a href="#"><span>Earth system impacts of the European arrival and Great Dying in the Americas after 1492</span></a>
@@ -639,15 +669,25 @@ if(isset($_POST['submit'])){
 
                                                             <h4 class="artical-head">Recent Publications</h4>
                                                             <ul class="journal-list">
-                                                                <li><a href="#"><span>Geomechanics for Energy and the Environment</span></a>
+                                                                <?php foreach($arr as $e): 
+                                                                    $s2 = "select * from journal where id = $e";
+                                                                    $r2 = mysqli_query($con,$s2);
+                                                                    while($rowj = mysqli_fetch_array($r2)){ 
+                                                                        $tempname = $rowj['journal_title'];
+                                                                        $rename = str_replace(' ','-',$tempname);
+                                                                    ?>
+                                                                <li><a href="journals/<?php echo $e ?>/<?php echo $rename; ?>"><span><?php echo $rowj['journal_title']; ?></span></a>
                                                                      <p> <a href="#">Volume 20</a></p>
-                                                                </li>
+                                                                 </li>
+                                                                    <?php } ?>
+                                                                <?php endforeach; ?>
+                                                                <!--
                                                                 <li><a href="#"><span>Gondwana Research</span></a>
                                                                      <p> <a href="#">Volume 20</a></p>
                                                                 </li>
                                                                 <li><a href="#"><span>Nuclear Engineering and Design</span></a>
                                                                      <p> <a href="#">Volume 20</a></p>
-                                                                </li>
+                                                                </li> -->
                                                             </ul>
 
                                                         </div>
@@ -695,13 +735,52 @@ if(isset($_POST['submit'])){
                                                         <div class="col-lg-6">
                                                             <h4 class="artical-head">Popular Articles</h4>
                                                             <ul class="journal-list">
+                                                            <?php 
+                                                            $applied = 'applied';
+                                                             $sql61 = "select * from subcategories where s_cat_id = 3";
+                                                             
+                                                             $result61 = mysqli_query($con,$sql61);
+                                                             $data61 = mysqli_fetch_array($result61);
+                                                             $cat1 =  $data61['journals'];
+                                                             $cat11 = explode(',',$cat1);
+                                                             $arr8 = [];
+                                                             foreach($cat11 as $b8):
+                                                                if($b8 == ""){
+                                                                    continue;
+                                                                }
+                                                                else{
+                                                                    array_push($arr8,$b8);
+                                                                }
+                                                            endforeach;
+                                                             foreach($arr8 as $ct8):
+                                                                
+                                                                
+                                                                $sqlsj11 = "select * from journal where id = $ct8";
+                                                                $resultj11 = mysqli_query($con,$sqlsj11);
+                                                                
+                                                                $dataj11 = mysqli_fetch_array($resultj11);
+                                                                $tempname4 = $dataj11['journal_title'];
+                                                                $replace4 = str_replace(' ',"-",$tempname4);
+                                                                //print_r($dataj1['journal_title']);
+                                                                //exit;
+                                                                $ar1 = "select * from articals where journal_id = $ct8 limit 1";
+                                                                $ra1 = mysqli_query($con,$ar1);
+                                                                $d1 = mysqli_fetch_array($ra1);
+                                                                $tempname5 = $d1['artical_short_name'];
+                                                                $replace5 = str_replace(' ','-',$tempname5);
+
+
+                                                             
+                                                            
+                                                            ?>
                                                                 <li>
 
-                                                                    <a href="#"><span>Nanoparticles: Properties, applications and toxicities</span></a>
-                                                                    <p><a href="#"> Arabian Journal of Chemistry </a></p>
+                                                                    <a href="articles/<?php echo $ct8; ?>/<?php echo $d1['artical_id'] ?>/<?php echo $replace5; ?>"><span><?php echo  $d1['artical_short_name']; ?></span></a>
+                                                                    <p><a href="journals/<?php echo $ct8; ?>/<?php echo $replace4; ?>"> <?php echo $dataj11['journal_title']; ?> </a></p>
 
                                                                 </li>
-                                                                <li>
+                                                             <?php  endforeach; ?>
+                                                                <!-- <li>
 
                                                                     <a href="#"><span>Earth system impacts of the European arrival and Great Dying in the Americas after 1492</span></a>
                                                                     <p><a href="#"> Arabian Journal of Chemistry </a></p>
@@ -712,25 +791,31 @@ if(isset($_POST['submit'])){
                                                                     <a href="#"><span>School performance, social networking effects, and learning of school children: Evidence of reciprocal relationships in Abu Dhabi</span></a>
                                                                     <p><a href="#"> Arabian Journal of Chemistry </a></p>
 
-                                                                </li>
+                                                                </li> -->
                                                             </ul>
+                                                            </ul>
+
                                                         </div>
                                                         <div class="col-lg-6">
 
-                                                            <h4 class="artical-head">Recent Publications</h4>
-                                                            <ul class="journal-list">
-                                                                <li><a href="#"><span>Geomechanics for Energy and the Environment</span></a>
+                                                                <h4 class="artical-head">Recent Publications</h4>
+                                                                <ul class="journal-list">
+                                                                <?php foreach($arr as $e): 
+                                                                    $s21 = "select * from journal where id = $e";
+                                                                    $r21 = mysqli_query($con,$s21);
+                                                                    while($rowj1 = mysqli_fetch_array($r21)){ 
+                                                                        $tempname3 = $rowj1['journal_title'];
+                                                                        $replace3 = str_replace(" ","-",$tempname3);
+                                                                    ?>
+                                                                <li><a href="journals/<?php echo $e; ?>/<?php echo $replace3; ?>"><span><?php echo $rowj1['journal_title']; ?></span></a>
                                                                      <p> <a href="#">Volume 20</a></p>
-                                                                </li>
-                                                                <li><a href="#"><span>Gondwana Research</span></a>
-                                                                     <p> <a href="#">Volume 20</a></p>
-                                                                </li>
-                                                                <li><a href="#"><span>Nuclear Engineering and Design</span></a>
-                                                                     <p> <a href="#">Volume 20</a></p>
-                                                                </li>
-                                                            </ul>
+                                                                 </li>
+                                                                    <?php } ?>
+                                                                <?php endforeach; ?>
+                                                                    </li>
+                                                                </ul>
 
-                                                        </div>
+                                                                </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -772,13 +857,52 @@ if(isset($_POST['submit'])){
                                                         <div class="col-lg-6">
                                                             <h4 class="artical-head">Popular Articles</h4>
                                                             <ul class="journal-list">
+                                                            <?php 
+                                                            $applied = 'applied';
+                                                             $sql64 = "select * from subcategories where s_cat_id = 4";
+                                                             
+                                                             $result64 = mysqli_query($con,$sql64);
+                                                             $data64 = mysqli_fetch_array($result64);
+                                                             $cat4 =  $data64['journals'];
+                                                             $cat14 = explode(',',$cat4);
+                                                             $arr4 = [];
+                                                             foreach($cat14 as $b4):
+                                                                if($b4 == ""){
+                                                                    continue;
+                                                                }
+                                                                else{
+                                                                    array_push($arr4,$b4);
+                                                                }
+                                                            endforeach;
+                                                             foreach($arr4 as $ct4):
+                                                                
+                                                                
+                                                                $sqlsj14 = "select * from journal where id = $ct4";
+                                                                $resultj14 = mysqli_query($con,$sqlsj14);
+                                                                
+                                                                $dataj14 = mysqli_fetch_array($resultj14);
+                                                                $tempname7 = $dataj14['journal_title'];
+                                                                $replace7 = str_replace(" ","-",$tempname7);
+                                                                //print_r($dataj1['journal_title']);
+                                                                //exit;
+                                                                $ar4 = "select * from articals where journal_id = $ct4 limit 1";
+                                                                $ra4 = mysqli_query($con,$ar4);
+                                                                $d4 = mysqli_fetch_array($ra4);
+                                                                $tempname8 = $d4['artical_short_name'];
+                                                                $replace8 = str_replace(" ","-",$tempname8);
+
+
+                                                             
+                                                            
+                                                            ?>
                                                                 <li>
 
-                                                                    <a href="#"><span>Nanoparticles: Properties, applications and toxicities</span></a>
-                                                                    <p><a href="#"> Arabian Journal of Chemistry </a></p>
+                                                                    <a href="articles/<?php echo $ct4; ?>/<?php echo $d4['artical_id']; ?>/<?php echo $replace8; ?>"><span><?php echo  $d4['artical_short_name']; ?></span></a>
+                                                                    <p><a href="journals/<?php echo $ct4; ?>/<?php echo $replace7; ?>"> <?php echo $dataj14['journal_title']; ?> </a></p>
 
                                                                 </li>
-                                                                <li>
+                                                             <?php  endforeach; ?>
+                                                                <!-- <li>
 
                                                                     <a href="#"><span>Earth system impacts of the European arrival and Great Dying in the Americas after 1492</span></a>
                                                                     <p><a href="#"> Arabian Journal of Chemistry </a></p>
@@ -789,25 +913,31 @@ if(isset($_POST['submit'])){
                                                                     <a href="#"><span>School performance, social networking effects, and learning of school children: Evidence of reciprocal relationships in Abu Dhabi</span></a>
                                                                     <p><a href="#"> Arabian Journal of Chemistry </a></p>
 
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="col-lg-6">
-
-                                                            <h4 class="artical-head">Recent Publications</h4>
-                                                            <ul class="journal-list">
-                                                                <li><a href="#"><span>Geomechanics for Energy and the Environment</span></a>
-                                                                     <p> <a href="#">Volume 20</a></p>
-                                                                </li>
-                                                                <li><a href="#"><span>Gondwana Research</span></a>
-                                                                     <p> <a href="#">Volume 20</a></p>
-                                                                </li>
-                                                                <li><a href="#"><span>Nuclear Engineering and Design</span></a>
-                                                                     <p> <a href="#">Volume 20</a></p>
-                                                                </li>
+                                                                </li> -->
                                                             </ul>
 
                                                         </div>
+                                                                                                            <div class="col-lg-6">
+
+                                                    <h4 class="artical-head">Recent Publications</h4>
+                                                    <ul class="journal-list">
+                                                    <?php foreach($arr4 as $e4): 
+                                                        $s214 = "select * from journal where id = $e4";
+                                                        $r214 = mysqli_query($con,$s214);
+                                                        while($rowj14 = mysqli_fetch_array($r214)){ 
+                                                            $tempname6 = $rowj14['journal_title'];
+                                                            $replace6 = str_replace(" ","-",$tempname6);
+                                                        ?>
+                                                    <li><a href="journals/<?php echo $e4;?>/<?php echo $replace6; ?>"><span><?php echo $rowj14['journal_title']; ?></span></a>
+                                                        <p> <a href="#">Volume 20</a></p>
+                                                    </li>
+                                                        <?php } ?>
+                                                    <?php endforeach; ?>
+                                                        </li>
+                                                    </ul>
+
+                                                    </div>
+
                                                     </div>
                                                 </div>
                                             </div>

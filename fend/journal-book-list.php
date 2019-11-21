@@ -336,7 +336,7 @@ $result1 = mysqli_query($con,$sql1);
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> How to get started?</a></li>
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> How to update to a new version?</a></li>
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> How to add a 3rd-party plugin?</a></li>
-                                                        <li><a href="#"><i class="fa fa-file-text-o"></i> How to update to a new version?</a></li>
+                                                        <li><a href="#"><i class="fa fa-file-text-o"></i> How to update to a new version?</a></li>  
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> What is the basic starter?</a></li>
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> How to get started?</a></li>
                                                         <li><a href="#"><i class="fa fa-file-text-o"></i> How to update to a new version?</a></li>
@@ -385,7 +385,7 @@ $result1 = mysqli_query($con,$sql1);
                                                               
                                                               ?>
                                                          
-                                                         <li><a href="journals/<?php echo $ct; ?>/<?php echo $rs8; ?>"><img src="../edelweiss/upload/journal_logos/<?php echo $singledata['journal_img'] ?>"><?php echo $singledata['journal_title']; ?></a></li>
+                                                         <li><a href="journals/<?php echo $ct; ?>/<?php echo $rs8; ?>"><img src="../edelweiss/upload/journal_logos/<?php echo $singledata['journal_img'] ?>"><?php echo ucfirst($singledata['journal_title']); ?></a></li>
                                                           <?php endforeach;
                                                          
                                                     ?>
