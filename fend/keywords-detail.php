@@ -14,6 +14,18 @@
    $data3 = mysqli_fetch_array($result3);
    $t = $data3['journal_title'];
    $r = str_replace(" ","-",$t);
+   
+   if(isset($_REQUEST['ktitle'])){
+    $sql = "select * from keywords where keyword_title='$ktitle'";
+    $result = mysqli_query($con,$sql);
+    $data = mysqli_fetch_array($result);
+    $sql3 = "select * from journal where id='$jid'";
+    $result3 = mysqli_query($con,$sql3);
+    $data3 = mysqli_fetch_array($result3);
+    $t = $data3['journal_title'];
+    $r = str_replace(" ","-",$t);
+
+   }
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
