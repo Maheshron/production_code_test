@@ -296,13 +296,13 @@ $r = str_replace(" ","-",$t);
                                     <div class="support-content">
 
                                         <ul>
-                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Aim and Scope</a></li>
-                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Editors Instructions</a></li>
-                                            <li><a href="e"><i class="fa fa-angle-right" aria-hidden="true"></i> Authors</a></li>
-                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Reviewers</a></li>
-                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Publications Charges</a></li>
-                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Publications Ethics</a></li>
-                                            <li><a class="view-more" href="Keywords/<?php echo $id; ?>/<?php echo $r; ?>">View more <i class="icofont-long-arrow-right"></i></a></li>
+                                            <!-- <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Aim and Scope</a></li> -->
+                                            <li><a href="foreditor.php"><i class="fa fa-angle-right" aria-hidden="true"></i> Editors Instructions</a></li>
+                                            <li><a href="author.php"><i class="fa fa-angle-right" aria-hidden="true"></i> Authors</a></li>
+                                            <li><a href="reviewers.php"><i class="fa fa-angle-right" aria-hidden="true"></i> Reviewers</a></li>
+                                            <li><a href="price.php"><i class="fa fa-angle-right" aria-hidden="true"></i> Publications Charges</a></li>
+                                            <li><a href="ethics.php"><i class="fa fa-angle-right" aria-hidden="true"></i> Publications Ethics</a></li>
+                                            <!-- <li><a class="view-more" href="Keywords/<?php echo $id; ?>/<?php echo $r; ?>">View more <i class="icofont-long-arrow-right"></i></a></li> -->
                                         </ul>
 
                                     </div>
