@@ -22,7 +22,7 @@ $r = str_replace(" ","-",$t);
     <!-- Place favicon.ico in the root directory -->
     <link href="assets/images/favicon.ico" type="img/x-icon" rel="shortcut icon">
     <!-- All css files are included here. -->
-    <base href="http://localhost/newedeweles_production/fend/" />
+    <base href="http://localhost/production_code_test/fend/" />
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -126,6 +126,18 @@ $r = str_replace(" ","-",$t);
         .btn-primary {
             background-color:#0068AB !important;
         }
+        .journal-list li p a:hover{
+            color:#e9711c;
+            text-decoration: underline
+        }
+        .uii{
+            background-color:#eee;
+            cursor:pointer;
+        }
+        .lii{
+            padding:12px;
+        }
+
     </style>
 </head>
 
@@ -160,15 +172,18 @@ $r = str_replace(" ","-",$t);
                         <!--Logo end-->
                         <!--Menu start-->
                         <div class="col-lg-4 ">
-                            <form class="card card-sm">
+                            <form class="card card-sm" method="post" action="keywords-detail.php">
                                 <div class="card-body row no-gutters align-items-center">
                                     <div class="col-auto">
                                         <i class="fa fa-search" aria-hidden="true"></i>
                                     </div>
                                     <!--end of col-->
                                     <div class="col">
-                                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords">
+                                        <input type="text" id="keywordSearch" class="form-control form-control-lg form-control-borderless" name="ktitle"  placeholder="Search topics or keywords">
                                     </div>
+                                    <div id="keywordList" style="position:absolute;z-index:999;margin-top:10px">
+
+
                                     <!--end of col-->
                                     <div class="col-auto">
                                         <button class="btn btn-lg btn-primary" type="submit">Search</button>
@@ -547,6 +562,44 @@ $r = str_replace(" ","-",$t);
             document.getElementById(cityName).style.display = "block";
             evt.currentTarget.className += " active";
         }
+
+
+
+        $(document).ready(function(){
+
+      
+$('#keywordSearch').keyup(function(){
+    var query = $(this).val();
+    if(query != ''){
+        $.ajax({
+            url:"searchk.php",
+            method:"POST",
+            data:{query:query},
+            success:function(data){
+                $('#keywordList').fadeIn();
+                $('#keywordList').html(data);
+                console.log(data);
+            }
+            
+        });
+       
+    }
+    else{
+        $('#keywordList').fadeOut();
+        $('#keywordList').html('');
+    }
+    
+});
+$(document).on('click','li',function(){
+    $('#keywordSearch').val($(this).text());
+    $('#keywordList').fadeOut();
+})
+
+});
+
+
+
+
     </script>
 </body>
 

@@ -2,20 +2,11 @@
 include("connect.php");
 $id = $_GET['journal_id'];
 $sql = "select  * from articals where journal_id = $id";
-<<<<<<< HEAD
-=======
-
->>>>>>> 6c002a0b48e342cb3a3b7615c022fa73cfc8004a
 $sqlt = "select * from journal where id = '$id'";
 $resultt = mysqli_query($con,$sqlt);
 $datat = mysqli_fetch_array($resultt);
 $t = $datat['journal_title'];
 $r = str_replace(" ","-",$t);
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 6c002a0b48e342cb3a3b7615c022fa73cfc8004a
 $result = mysqli_query($con,$sql);
            $arr = [];
            $arri = [];
@@ -39,11 +30,7 @@ $result = mysqli_query($con,$sql);
     <!-- Place favicon.ico in the root directory -->
     <link href="assets/images/favicon.ico" type="img/x-icon" rel="shortcut icon">
     <!-- All css files are included here. -->
-<<<<<<< HEAD
-    <base href="http://localhost/newedeweles_production/fend/" />
-=======
-    <base href="http://localhost/production_code_test/fend/" />
->>>>>>> 6c002a0b48e342cb3a3b7615c022fa73cfc8004a
+    <base href="http://metrocoolsolutions.in/test2/newedeweles/fend/" />
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -462,21 +449,14 @@ $result = mysqli_query($con,$sql);
                                    $h = (isset($_POST['h']) ? 1 : 0 );
                                    $sql8 = "insert into subscribe(name,email,life_science,health_science,chemical_science,subscribe_time) values('$name','$email','$l','$c','$h',NOW())";
                                    $result8 = mysqli_query($con,$sql8);
-<<<<<<< HEAD
                                    if($result8){
                                        echo "<script>alert('inserted');</script>";
                                    }
-=======
->>>>>>> 6c002a0b48e342cb3a3b7615c022fa73cfc8004a
                                    $to = "skshanawa21@gmail.com";
                                    $from = $email;
                                    $message = "PHP mail works fine";
                                    $headers = "From ".$from;
                                    mail($to,$from,$message,$headers);
-<<<<<<< HEAD
-=======
-
->>>>>>> 6c002a0b48e342cb3a3b7615c022fa73cfc8004a
                                 }
                                 
                                 ?>

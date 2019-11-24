@@ -4,6 +4,16 @@ $sql = "select * from journal limit 5";
 $result = mysqli_query($con,$sql);
 $sql1 = "select * from journal limit 9";
 $result1 = mysqli_query($con,$sql1);
+if(isset($_REQUEST['s'])){
+    extract($_REQUEST);
+   $A = $s;
+    $sql = "select * from journal where journal_title like  '$A%' limit 5";
+$result = mysqli_query($con,$sql);
+
+
+$sql1 = "select * from journal where journal_title like '$s%' limit 9";
+$result1 = mysqli_query($con,$sql1);
+}
 
 ?>
 <!doctype html>

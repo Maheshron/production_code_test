@@ -1,5 +1,7 @@
 <?php include "connect.php";
-   $id = $_GET['keyword_id'];
+if(isset($_REQUEST['keyword_id'])){
+     extract($_REQUEST);
+    $id = $_GET['keyword_id'];
    $jid = $_GET['journal_id'];
    $kname  = $_GET['keyword_title'];
    $sql = "select * from keywords where keyword_id='$id'";
@@ -14,11 +16,13 @@
    $data3 = mysqli_fetch_array($result3);
    $t = $data3['journal_title'];
    $r = str_replace(" ","-",$t);
-   
+}
    if(isset($_REQUEST['ktitle'])){
-    $sql = "select * from keywords where keyword_title='$ktitle'";
+       extract($_REQUEST);
+    $sql = "select * from keywords where keyword='$ktitle'";
     $result = mysqli_query($con,$sql);
     $data = mysqli_fetch_array($result);
+    $jid = $data['journal_id'];
     $sql3 = "select * from journal where id='$jid'";
     $result3 = mysqli_query($con,$sql3);
     $data3 = mysqli_fetch_array($result3);

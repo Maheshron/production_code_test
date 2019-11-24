@@ -31,7 +31,9 @@ $r = str_replace(" ","-",$t);
 
 // }
 
-
+if(isset($_REQUEST['submit'])){
+    header('Location:keywords-detail.php');
+}
 ?>
 
 
@@ -103,6 +105,17 @@ $r = str_replace(" ","-",$t);
             padding: 1em;
             font-size: 14px;
         }
+        .journal-list li p a:hover{
+            color:#e9711c;
+            text-decoration: underline
+        }
+        .uii{
+            background-color:#eee;
+            cursor:pointer;
+        }
+        .lii{
+            padding:12px;
+        }
     </style>
 </head>
 
@@ -137,14 +150,16 @@ $r = str_replace(" ","-",$t);
                         <!--Logo end-->
                         <!--Menu start-->
                         <div class="col-lg-4 ">
-                            <form class="card card-sm">
+                            <form class="card card-sm" method="post" action="keywords-detail.php">
                                 <div class="card-body row no-gutters align-items-center">
                                     <div class="col-auto">
                                         <i class="fa fa-search" aria-hidden="true"></i>
                                     </div>
                                     <!--end of col-->
                                     <div class="col">
-                                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords">
+                                        <input id="keywordSearch" name="ktitle" class="form-control form-control-lg form-control-borderless" type="text" placeholder="Search topics or keywords">
+                                        <div id="keywordList" style="position:absolute;z-index:999;margin-top:10px">
+                                    
                                     </div>
                                     <!--end of col-->
                                     <div class="col-auto">
@@ -448,12 +463,50 @@ $r = str_replace(" ","-",$t);
     </script>
     <script src="https://www.google.com/recaptcha/api.js?render=_reCAPTCHA_site_key"></script>
 <script>
-grecaptcha.ready(function() {
-    grecaptcha.execute('_reCAPTCHA_site_key_', {action: 'homepage'}).then(function(token) {
-       ...
-    });
+
+
+
+$(document).ready(function(){
+
+      
+$('#keywordSearch').keyup(function(){
+    var query = $(this).val();
+    if(query != ''){
+        $.ajax({
+            url:"searchk.php",
+            method:"POST",
+            data:{query:query},
+            success:function(data){
+                $('#keywordList').fadeIn();
+                $('#keywordList').html(data);
+                console.log(data);
+            }
+            
+        });
+       
+    }
+    else{
+        $('#keywordList').fadeOut();
+        $('#keywordList').html('');
+    }
+    
 });
-$('.alert').alert()
+$(document).on('click','li',function(){
+    $('#keywordSearch').val($(this).text());
+    $('#keywordList').fadeOut();
+})
+
+});
+
+
+
+
+
+
+
+
+
+
 </script>
 </body>
 

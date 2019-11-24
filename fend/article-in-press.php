@@ -9,7 +9,9 @@ $result2 = mysqli_query($con,$sql2);
 $data2 = mysqli_fetch_array($result2);
 $t = $data2['journal_title'];
 $r = str_replace(" ","-",$t);
-
+if(isset($_REQUEST['submit'])){
+    header('Location:keywords-detail.php');
+}
 
 ?>
 
@@ -118,15 +120,17 @@ $r = str_replace(" ","-",$t);
                         <!--Logo end-->
                         <!--Menu start-->
                         <div class="col-lg-4 ">
-                            <form class="card card-sm">
+                            <form class="card card-sm" method="post" action="keywords-detail.php">
                                 <div class="card-body row no-gutters align-items-center">
                                     <div class="col-auto">
                                         <i class="fa fa-search" aria-hidden="true"></i>
                                     </div>
                                     <!--end of col-->
                                     <div class="col">
-                                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords">
-                                    </div>
+                                        <input id="keywordSearch" name="ktitle" class="form-control form-control-lg form-control-borderless" type="text" placeholder="Search topics or keywords">
+                                        <div id="keywordList" style="position:absolute;z-index:999;margin-top:10px">
+                                    
+                                     </div>
                                     <!--end of col-->
                                     <div class="col-auto">
                                         <button class="btn btn-lg btn-primary" type="submit">Search</button>
@@ -499,6 +503,45 @@ $r = str_replace(" ","-",$t);
             document.getElementById(cityName).style.display = "block";
             evt.currentTarget.className += " active";
         }
+
+
+        $(document).ready(function(){
+
+      
+$('#keywordSearch').keyup(function(){
+    var query = $(this).val();
+    if(query != ''){
+        $.ajax({
+            url:"searchk.php",
+            method:"POST",
+            data:{query:query},
+            success:function(data){
+                $('#keywordList').fadeIn();
+                $('#keywordList').html(data);
+                console.log(data);
+            }
+            
+        });
+       
+    }
+    else{
+        $('#keywordList').fadeOut();
+        $('#keywordList').html('');
+    }
+    
+});
+$(document).on('click','li',function(){
+    $('#keywordSearch').val($(this).text());
+    $('#keywordList').fadeOut();
+})
+
+});
+
+
+
+
+
+
     </script>
 </body>
 

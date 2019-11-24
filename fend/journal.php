@@ -46,7 +46,7 @@ if(isset($_REQUEST['submit'])){
     <!-- Place favicon.ico in the root directory -->
     <link href="assets/images/favicon.ico" type="img/x-icon" rel="shortcut icon">
     <!-- All css files are included here. -->
-    <base href="http://localhost/newedeweles_production/fend/" />
+    <base href="http://localhost/production_code_test/fend/" />
     
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -144,7 +144,7 @@ if(isset($_REQUEST['submit'])){
                         <!--Logo end-->
                         <!--Menu start-->
                         <div class="col-lg-4 ">
-                            <form class="card card-sm" method="post" action="keyword-detail.php">
+                            <form class="card card-sm" method="post" action="keywords-detail.php">
                                 <div class="card-body row no-gutters align-items-center">
                                     <div class="col-auto">
                                         <i class="fa fa-search" aria-hidden="true"></i>
@@ -313,11 +313,11 @@ if(isset($_REQUEST['submit'])){
 
                                         <ul>
                                             <!-- <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Aim and Scope</a></li> -->
-                                            <li><a href="foreditor.php"><i class="fa fa-angle-right" aria-hidden="true"></i> Editors Instructions</a></li>
-                                            <li><a href="author.php"><i class="fa fa-angle-right" aria-hidden="true"></i> Authors</a></li>
-                                            <li><a href="reviewers.php"><i class="fa fa-angle-right" aria-hidden="true"></i> Reviewers</a></li>
-                                            <li><a href="price.php"><i class="fa fa-angle-right" aria-hidden="true"></i> Publications Charges</a></li>
-                                            <li><a href="ethics.php"><i class="fa fa-angle-right" aria-hidden="true"></i> Publications Ethics</a></li>
+                                            <li><a href="foreditor.php?journal_id=<?php  echo $id; ?>"><i class="fa fa-angle-right" aria-hidden="true"></i> Editors Instructions</a></li>
+                                            <li><a href="author.php?journal_id=<?php  echo $id; ?>"><i class="fa fa-angle-right" aria-hidden="true"></i> Authors</a></li>
+                                            <li><a href="reviewers.php?journal_id=<?php  echo $id; ?>"><i class="fa fa-angle-right" aria-hidden="true"></i> Reviewers</a></li>
+                                            <li><a href="price.php?journal_id=<?php  echo $id; ?>"><i class="fa fa-angle-right" aria-hidden="true"></i> Publications Charges</a></li>
+                                            <li><a href="ethics.php?journal_id=<?php  echo $id; ?>"><i class="fa fa-angle-right" aria-hidden="true"></i> Publications Ethics</a></li>
                                             <!-- <li><a class="view-more" href="Keywords/<?php echo $id; ?>/<?php echo $r; ?>">View more <i class="icofont-long-arrow-right"></i></a></li> -->
                                         </ul>
 

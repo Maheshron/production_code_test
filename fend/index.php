@@ -318,11 +318,11 @@ if(isset($_POST['submit'])){
                         <div class="col-lg-4">
                             <nav class="main-menu" style="float: left">
                                 <ul>
-                                    <li><a href="/edelweissfrontend/fend/journal-book-list.php">Journals List</a>
+                                    <li><a href="/production_code_test/fend/journal-book-list.php">Journals List</a>
                                     </li>
-                                    <li><a href="/edelweissfrontend/fend/article.php">Articles</a>
+                                    <li><a href="/production_code_test/fend/article.php">Articles</a>
                                     </li>
-                                    <li><a href="/edelweissfrontend/fend/contact.php">Contact Us</a>
+                                    <li><a href="/production_code_test/fend/contact.php">Contact Us</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -1059,33 +1059,32 @@ if(isset($_POST['submit'])){
                         </div>
                         <div class="col-md-9">
                             <ul class="u-display-inline branded u-text-center index-list text-l">
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">A</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">B</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">C</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">D</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">E</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">F</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">G</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">H</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">I</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">J</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">K</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">L</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">M</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">N</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">O</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">P</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">Q</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">R</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">S</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">T</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">U</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">V</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">W</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">X</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">Y</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">Z</a></li>
-                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php">0-9</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=A">A</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=B">B</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=C">C</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=D">D</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=E">E</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=F">F</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=G">G</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=H">H</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=I">I</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=J">J</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=K">K</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=L">L</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=M">M</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.?s=N">N</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=O">O</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=P">P</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=Q">Q</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=R">R</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=S">S</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.?s=T">T</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.?s=U">U</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=V">V</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=W">W</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=X">X</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.?s=Y">Y</a></li>
+                                <li class="letter u-display-inline-block u-padding-xs-hor u-margin-xs-right"><a href="journal-book-list.php?s=Z">Z</a></li>
                             </ul>
                         </div>
                     </div>

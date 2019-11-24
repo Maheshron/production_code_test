@@ -1,3 +1,15 @@
+
+<?php
+include("connect.php");
+$id = $_GET['journal_id'];
+$sql = "select * from journal where id = '$id'";
+$result = mysqli_query($con,$sql);
+$data = mysqli_fetch_array($result);
+$t = $data['journal_title'];
+$r = str_replace(' ',"-",$t);
+
+?>
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -400,14 +412,13 @@
                     </div>
                     <div class="menu" id="open-navbar1">
                         <ul class="list">
-                            <li><a href="#">Home</a></li>
-
-                            <li><a href="#">Editorial Panel</a></li>
+                        <li><a href="journals/<?php echo $id; ?>/<?php echo $r; ?>">Home</a></li>
+                            <li><a href="editorial-board/<?php echo $id; ?>/<?php echo $r; ?>">Editorial Panel</a></li>
                             <li><a href="#">Manuscript Submissions</a></li>
-                            <li><a href="article-in-press.html">Articles in Press</a></li>
-                            <li><a href="currrnt-issue.html">Current Issue</a></li>
-                            <li><a href="previous-issue.html">Previous Issue</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="article-in-press/<?php echo $id; ?>/<?php  echo $r; ?>">Articles in Press</a></li>
+                            <li><a href="current_issues/<?php echo $id; ?>/<?php  echo $r; ?>">Current Issue</a></li>
+                            <li><a href="previous_issues/<?php echo $id; ?>/<?php  echo $r; ?>">Previous Issue</a></li>
+                            <li><a href="journal_contact/<?php echo $id; ?>/<?php echo $r; ?>">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
