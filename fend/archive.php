@@ -299,11 +299,40 @@ $result = mysqli_query($con,$sql);
                                                          }
                                                          sort($arri);
                                                          ?>
-                                                         <?php 
+                                                         <?php
+                                                           
                                                          foreach($arri as $b): ?>
-                                                        <h5> <a href="article.html">Volume <?php echo $a; ?>, Issue <?php echo $b; ?> </a></h5>
+
+                                                         <?php
+                                                         $last =   count($arri);
+                                                         $second = count($arri) - 1;
+                                                         $third =  count($arri) - 2;
+                                                         
                                                         
-                                                        <?php endforeach; ?>
+                                                         
+                                                               if($b == count($arri)){ ?>
+
+                                                               
+                                                         
+                                                        <h5> <a href="article-in-press/<?php echo $id; ?>/<?php  echo $r; ?>">Volume <?php echo $a; ?>, Issue <?php echo $b; ?> </a></h5>
+                                                               <?php  } ?>
+
+                                                         
+                                                               <?php
+                                                               if($b == count($arri) - 1){ ?>
+
+                                                               
+                                                         
+                                                        <h5> <a href="current_issues/<?php echo $id; ?>/<?php  echo $r; ?>">Volume <?php echo $a; ?>, Issue <?php echo $b; ?> </a></h5>
+                                                               <?php } ?>
+                                                               <?php
+                                                               if($b == count($arri) - 2){ ?>
+                                                        <h5> <a href="previous_issues/<?php echo $id; ?>/<?php  echo $r; ?>">Volume <?php echo $a; ?>, Issue <?php echo $b; ?> </a></h5>
+
+                                                               <?php }
+                                                           ?>
+                                                           
+                                                        <?php  endforeach; ?>
                                                         <!-- <h5><a href="article.html">Volume 12, Issue 5 </a> </h5>
                                                         <p>(June 2019)</p>
                                                         <h5><a href="article.html">Volume 12, Issue 4 </a> </h5>
