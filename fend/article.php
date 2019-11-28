@@ -477,7 +477,7 @@ $r = str_replace(' ','-',$t);
                             $kname = str_replace(" ","-",$k);
                              ?>
                                 
-                            <li><a href="keywords/<?php echo $jid; ?>/<?php echo $kid ?>/<?php echo $kname; ?>""><?php echo $rowk['keyword']; ?></a></li> 
+                            <li><a href="keywords/<?php echo $jid; ?>/<?php echo $kid ?>/<?php echo $kname; ?>"><?php echo $rowk['keyword']; ?></a></li> 
                         <?php }    ?>
                             
                             <!--<li><a href="#">Chemistry</a></li>-->
