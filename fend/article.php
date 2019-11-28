@@ -28,7 +28,7 @@ $r = str_replace(' ','-',$t);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico in the root directory -->
     <link href="assets/images/favicon.ico" type="img/x-icon" rel="shortcut icon">
-        <base href="http://metrocoolsolutions.in/test2/newedeweles/fend/" />
+        <base href="http://localhost/production_code_test/fend/" />
 
     <!-- All css files are included here. -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -424,9 +424,9 @@ $r = str_replace(' ','-',$t);
                         <p>Available online 18 May 2017</p>
                         <hr>
                         <div class="article-content">
-                            <h4>Abstract</h4>
+                            <h4></h4>
                             <p>
-                            <?php echo $data['abstract']; ?>
+                            <?php echo $data['artical_content']; ?>
                             </p>
                             <h4>Keywords</h4>
                             <p>
@@ -466,7 +466,7 @@ $r = str_replace(' ','-',$t);
                         <br>
                         <div>
                             <h4>Keywords</h4>
-                        <ul class="artical-list">
+                        <ul class="artical-list1">
                             <?php
                              $sqlk = "select * from keywords where journal_id = '$jid' limit 0,8";
                              $resultk = mysqli_query($con,$sqlk);
@@ -605,7 +605,30 @@ $r = str_replace(' ','-',$t);
     </div>
 
     <!-- Placed js at the end of the document so the pages load faster -->
-
+    <script>
+    // var side = document.getElementByTagName('h3');
+    // for(var i  =1;i < side.length;i++){
+    //     console.log(side[i]);
+    //     document.
+    // }
+    // var ul = document.getElementsByTagName('ul');
+    // ul[0].innerHTML = '';
+    var lis = document.querySelector('.artical-list li');
+    for(var i = 0; li = lis[i];i++){
+        li.parentNode.removeChild(li);
+    }
+    var side = document.querySelectorAll('h3.MsoNormal');
+    var ui = document.getElementsByTagName('ul');
+     ui[2].innerHTML = "";
+       for(var i = 0;i < side.length;i++){
+              var li = document.createElement('li');
+              side[i].id = side[i].innerText;
+              
+              li.innerHTML = "<a href=#"+ side[i].id +">" + side[i].innerHTML + "</a>";
+              ui[2].appendChild(li);
+       }
+       
+    </script>
     <!-- All jquery file included here -->
     <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
     <script src="https://maps.google.com/maps/api/js?sensor=false&amp;libraries=geometry&amp;v=3.22&amp;key=AIzaSyDAq7MrCR1A2qIShmjbtLHSKjcEIEBEEwM"></script>
@@ -631,6 +654,7 @@ $r = str_replace(' ','-',$t);
             evt.currentTarget.className += " active";
         }
     </script>
+   
 </body>
 
 </html>

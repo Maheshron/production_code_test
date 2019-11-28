@@ -86,6 +86,9 @@ if(isset($_REQUEST['submit'])){
         .pdf-btn {
             padding-left: 10px;
         }
+        .card,.btn-primary{
+            border-radius:30px;
+        }
     </style>
 </head>
 
@@ -121,7 +124,7 @@ if(isset($_REQUEST['submit'])){
                         <!--Menu start-->
                         <div class="col-lg-4 ">
                             <form class="card card-sm" method="post" action="keywords-detail.php">
-                                <div class="card-body row no-gutters align-items-center">
+                                <div class="card-body1 row no-gutters align-items-center">
                                     <div class="col-auto">
                                         <i class="fa fa-search" aria-hidden="true"></i>
                                     </div>
@@ -130,6 +133,7 @@ if(isset($_REQUEST['submit'])){
                                         <input id="keywordSearch" name="ktitle" class="form-control form-control-lg form-control-borderless" type="text" placeholder="Search topics or keywords">
                                         <div id="keywordList" style="position:absolute;z-index:999;margin-top:10px">
                                     
+                                     </div>
                                      </div>
                                     <!--end of col-->
                                     <div class="col-auto">
@@ -207,7 +211,7 @@ if(isset($_REQUEST['submit'])){
                                 <div class="col-lg-6 right-side">
                                     <h3>Abstract</h3>
                                     <p>
-                                    <?php echo $row['abstract']; ?>
+                                    <?php echo substr($row['artical_content'],0,350); ?>
                                     </p>
                                      <a style="float: right" class="view-more" href="articles/<?php echo $id; ?>/<?php echo $row['artical_id']; ?>/<?php echo $ar; ?>" >View more <i class="icofont-long-arrow-right"></i></a>
                                 </div>

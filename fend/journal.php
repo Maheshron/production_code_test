@@ -110,6 +110,16 @@ if(isset($_REQUEST['submit'])){
         .lii{
             padding:12px;
         }
+       .card,.btn-primary{
+           border-radius:30px;
+       }
+       /* .card-body{
+           padding:5px 10px !important;
+       }
+       .no-gutters{
+           margin-left:0;
+           margin-right:0;
+       } */
     </style>
 </head>
 
@@ -145,7 +155,7 @@ if(isset($_REQUEST['submit'])){
                         <!--Menu start-->
                         <div class="col-lg-4 ">
                             <form class="card card-sm" method="post" action="keywords-detail.php">
-                                <div class="card-body row no-gutters align-items-center">
+                                <div class="card-body1 row no-gutters align-items-center">
                                     <div class="col-auto">
                                         <i class="fa fa-search" aria-hidden="true"></i>
                                     </div>
@@ -153,6 +163,7 @@ if(isset($_REQUEST['submit'])){
                                     <div class="col">
                                         <input id="keywordSearch" name="ktitle" class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords">
                                      <div id="keywordList" style="position:absolute;z-index:999;margin-top:10px">
+                                    </div>
                                     </div>
                                     <!--end of col-->
                                     <div class="col-auto">
@@ -190,16 +201,30 @@ if(isset($_REQUEST['submit'])){
                         <button class="toggle-nav" data-toggle="open-navbar1"><i class="fa fa-align-right"></i></button>
                     </div>
                     <div class="menu" id="open-navbar1">
+                    <nav class="main-menu">
                         <ul class="list">
                             <li><a href="journals/<?php echo $id; ?>/<?php echo $r; ?>">Home</a></li>
+                            <li><a href="#">Editorial Panel</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="editor-in-chief/<?php echo $id; ?>/<?php echo $r; ?>">Editor In Chief</a></li>
+                                        <li><a href="editorial-board/<?php echo $id; ?>/<?php echo $r; ?>">Editorial Board</a></li>
+                                    </ul>
+                                </li>
 
-                            <li><a href="editorial-board/<?php echo $id; ?>/<?php echo $r; ?>">Editorial Panel</a></li>
-                            <li><a href="#">Manuscript Submissions</a></li>
+                                <li><a href="#">Manuscript Submissions</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="instruction-for-author.html">Instructions for Authors</a></li>
+                                        <li><a href="submit-menuscript.html">Submit Manuscript</a></li>
+                                    </ul>
+                                </li>
+                            <!-- <li><a href="editorial-board/<?php //echo $id; ?>/<?php //echo $r; ?>">Editorial Panel</a></li> -->
+                            
                             <li><a href="article-in-press/<?php echo $id; ?>/<?php  echo $r; ?>">Articles in Press</a></li>
                             <li><a href="current_issues/<?php echo $id; ?>/<?php  echo $r; ?>">Current Issue</a></li>
                             <li><a href="previous_issues/<?php echo $id; ?>/<?php  echo $r; ?>">Previous Issue</a></li>
                             <li><a href="journal_contact/<?php echo $id; ?>/<?php echo $r; ?>">Contact Us</a></li>
                         </ul>
+                        </nav>
                     </div>
                 </div>
             </nav>
@@ -1032,7 +1057,6 @@ if(isset($_REQUEST['submit'])){
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
-
     <script>
         function openCity(evt, cityName) {
             var i, tabcontent, tablinks;
@@ -1102,8 +1126,8 @@ if(isset($_REQUEST['submit'])){
                 }]
             });
         });
-
-
+    </script>
+<script>
         $(document).ready(function(){
 
       
@@ -1142,6 +1166,10 @@ $(document).on('click','li',function(){
 
 
     </script>
+  
+
+
+
 </body>
 
 </html>

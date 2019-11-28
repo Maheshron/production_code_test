@@ -27,6 +27,9 @@ RewriteRule ^previous_issues/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+) previous-issue?journ
 RewriteRule ^editorial-boar?$ editorial-board.php
 RewriteRule ^editorial-board/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+) editorial-boar?journal_id=$1&journal_title=$2 [QSA,L]
 
+RewriteRule ^eic?$ editor-in-chief.php
+RewriteRule ^editor-in-chief/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+) eic?journal_id=$1&journal_title=$2 [QSA,L]
+
 RewriteRule ^contact?$ contact.php
 RewriteRule ^journal_contact/([a-zA-Z0-9]+)/([a-zA-Z0-9-]+) contact?journal_id=$1&journal_title=$2 [QSA,L]
 

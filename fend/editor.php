@@ -167,7 +167,7 @@ $data = mysqli_fetch_array($result);
                             <li><a href="editorial-board.php?journal_id=<?php echo $id; ?>">Editorial Panel</a></li>
                             <li><a href="#">Manuscript Submissions</a></li>
                             <li><a href="article-in-press.php?<?php echo $id; ?>">Articles in Press</a></li>
-                            <li><a href="currrnt-issue.php?journal_id=<?php  echo $id; ?>">Current Issue</a></li>
+                            <li><a href="current-issue.php?journal_id=<?php  echo $id; ?>">Current Issue</a></li>
                             <li><a href="previous-issue.php?journal_id=<?php echo $id; ?>">Previous Issue</a></li>
                             <li><a href="contact.php">Contact Us</a></li>
                         </ul>

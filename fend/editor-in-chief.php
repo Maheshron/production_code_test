@@ -1,7 +1,7 @@
 <?php
 include "connect.php";
 $id = $_GET['journal_id'];
-$sql = "select * from editors where journal_id='$id' order by Position limit 0,1";
+$sql = "select * from editors where journal_id='$id' and editor_in_chief = '1'";
 $result = mysqli_query($con,$sql);
 $data = mysqli_fetch_array($result);
 
@@ -24,6 +24,9 @@ $data = mysqli_fetch_array($result);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico in the root directory -->
     <link href="assets/images/favicon.ico" type="img/x-icon" rel="shortcut icon">
+    
+    <base href="http://localhost/production_code_test/fend/" />
+    
     <!-- All css files are included here. -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
