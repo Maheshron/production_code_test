@@ -962,6 +962,14 @@ if(isset($_POST['submit'])){
                                    $l = (isset($_POST['l']) ? 1 : 0 );
                                    $c = (isset($_POST['c']) ? 1 : 0 );
                                    $h = (isset($_POST['h']) ? 1 : 0 );
+                                   $valid = "select * from subscribe where email='$email'";
+                                   $validresult = mysqli_query($con,$valid);
+                                   $count = mysqli_num_rows($validresult);
+                                   
+                                   
+                                   if(mysqli_num_rows($validresult) > 0){
+                                       echo "<script>alert('Sorry email has already subscribed');</script>";
+                                   }
                                    $sql8 = "insert into subscribe(name,email,life_science,health_science,chemical_science,subscribe_time) values('$name','$email','$l','$c','$h',NOW())";
                                    $result8 = mysqli_query($con,$sql8);
                                    $to = "skshanawa21@gmail.com";
